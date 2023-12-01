@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CatalogModule } from './catalog/catalog.module';
+import { ContactsModule } from './contacts/contacts.module';
 
 
 
@@ -8,7 +9,8 @@ import { CatalogModule } from './catalog/catalog.module';
   declarations: [],
   imports: [
     CommonModule,
-    CatalogModule
+    CatalogModule,
+    ContactsModule
   ]
 })
 export class PagesModule { }
