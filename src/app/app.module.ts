@@ -12,9 +12,9 @@ import { ServicesModule } from './services/services.module';
     AppComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     ConnectionModule,
     MainBlockModule,
     ServicesModule
