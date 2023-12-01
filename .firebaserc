@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "online-clothing-store-34e45"
+  },
+  "targets": {
+    "online-clothing-store-34e45": {
+      "hosting": {
+        "Clothing-Store": [
+          "online-clothing-store-34e45"
+        ]
+      }
+    }
   }
 }

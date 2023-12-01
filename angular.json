@@ -119,6 +119,13 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2,
+            "browserTarget": "Clothing-Store:build:production"
+          }
         }
       }
     }
