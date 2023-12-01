@@ -1,2 +1,50 @@
-<p>header works!</p>
-<csa-login-form></csa-login-form>
+<nav>
+    <div class="title">
+      <img
+        src="assets/image/icon/menu.svg"
+        alt="menu"
+        class="mini-menu"
+        (click)="showMiniMenu()"
+      />
+      <h1 (click)="goToUrl('main')">Shop.co</h1>
+    </div>
+    <ul class="menu">
+      <li>
+        <a [routerLink]="'main'" routerLinkActive="active">Главное</a>
+      </li>
+      <li>
+        <a [routerLink]="'catalog'" routerLinkActive="active">Каталог</a>
+      </li>
+      <li>
+        <a [routerLink]="'contacts'" routerLinkActive="active">Контакти</a>
+      </li>
+    </ul>
+    <div class="personal">
+      <img
+        src="assets/image/icon/shop.svg"
+        alt="shop"
+        (click)="goToUrl('shopping-list')"
+      />
+      <img src="{{ userImg }}" alt="user" (click)="loginShow()" />
+    </div>
+  </nav>
+
+  <ul class="menu-2" *ngIf="isShowMenu">
+    <li>
+      <a [routerLink]="'/main'" routerLinkActive="active">Главное</a>
+    </li>
+    <li>
+      <a [routerLink]="'catalog'" routerLinkActive="active">Каталог</a>
+    </li>
+    <li>
+      <a [routerLink]="'contacts'" routerLinkActive="active">Контакти</a>
+    </li>
+  </ul>
+
+  <app-login-form
+    *ngIf="isLogin"
+    [isLogin]="isLogin"
+    (closeLogin)="returnLogin()"
+    [imgLogin]="userImg"
+    (returnImgLogin)="returnImage($event)"
+  ></app-login-form>
