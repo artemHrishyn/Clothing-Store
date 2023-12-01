@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ConnectionModule } from './services/firebase/connections/connection.module';
 import { HttpClientModule } from '@angular/common/http';
+import { MainBlockModule } from './components/main-block/main-block.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule,
     ConnectionModule,
+    MainBlockModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
