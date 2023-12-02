@@ -1,0 +1,79 @@
+@import '_mixin.scss';
+
+// color
+$colorBlack: #000;
+$colorWhite: #fff;
+
+// font
+$fontFamilySatoshi: Satoshi sans-serif;
+$fontFamilyInter: Inter sans-serif;
+
+:host {
+  width: 100%;
+  background-color: $colorBlack;
+  color: $colorWhite;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  display: grid;
+  @include gridTemplateColumnsInfo();
+  width: 100%;
+
+  h1 {
+    font-family: $fontFamilySatoshi;
+    color: $colorWhite;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+
+  h2 {
+    margin-bottom: 10px;
+    font-family: $fontFamilySatoshi;
+    color: $colorWhite;
+    text-transform: uppercase;
+    font-weight: 800;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  >ul {
+    width: 100%;
+    display: grid;
+    @include gridTemplateList();
+    justify-items: center;
+
+    li {
+      margin-bottom: 10px;
+      margin-right: 10px;
+      font-family: $fontFamilySatoshi;
+      color: $colorWhite;
+      font-weight: 300;
+    }
+  }
+}
+
+.social {
+  list-style: none;
+
+  a {
+    display: flex;
+    color: $colorWhite;
+    font-family: $fontFamilyInter;
+    font-weight: 400;
+    position: relative;
+    text-decoration: none;
+  }
+}
+
+.social__info {
+  display: flex;
+
+  img {
+    max-width: 30px;
+  }
+}

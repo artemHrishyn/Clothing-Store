@@ -1,0 +1,14 @@
+@mixin gridTemplateColumnsHead() {
+    @media only screen and (min-width: 1027px) {
+      grid-template-columns: 275px 1fr 275px;
+    }
+  
+    @media only screen and (max-width: 1027px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @mixin sizeClamp($property, $minValue, $clampValue, $maxValue) {
+    #{$property}: clamp(#{$minValue}, #{$clampValue}, #{$maxValue});
+  }
+  

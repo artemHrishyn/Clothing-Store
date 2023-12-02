@@ -1,0 +1,30 @@
+@mixin gridTemplateColumnsInfo() {
+    @media only screen and (min-width: 1900px) {
+      grid-template-columns: 500px 1fr;
+    }
+  
+    @media only screen and (min-width: 1240px) {
+      grid-template-columns: 200px 1fr;
+    }
+  
+    @media only screen and (max-width: 1240px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr;
+      grid-gap: 20px;
+    }
+  }
+  
+  @mixin gridTemplateList(){
+    @media only screen and (min-width: 768px){
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+    }
+  
+    @media only screen and (max-width: 768px){
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, auto);
+      grid-gap: 20px;
+      justify-items: flex-start;
+    }
+  }
+  

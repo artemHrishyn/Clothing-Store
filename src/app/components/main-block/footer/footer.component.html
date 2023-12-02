@@ -1,0 +1,64 @@
+<div class="content">
+    <h1 (click)="goToUrl('main')">Shop.co</h1>
+    <ul>
+      <li>
+        <h2>Інформація</h2>
+        <ul>
+          <li *ngFor="let item of list.info">{{ item }}</li>
+        </ul>
+      </li>
+      <li>
+        <h2>Допомога</h2>
+        <ul>
+          <li *ngFor="let item of list.help">{{ item }}</li>
+        </ul>
+      </li>
+      <li>
+        <ul class="social">
+          <li><h2>social media</h2></li>
+          <li>
+            <ul class="social__info">
+              <li>
+                <img
+                  src="https://img.icons8.com/papercut/60/twitter.png"
+                  alt="twitter"
+                />
+              </li>
+              <li>
+                <img
+                  src="https://img.icons8.com/arcade/128/facebook-new.png"
+                  alt="facebook-new"
+                />
+              </li>
+              <li>
+                <img
+                  src="https://img.icons8.com/3d-fluency/94/youtube-play.png"
+                  alt="youtube-play"
+                />
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="tel:+380936470424">
+              <img
+                src="https://img.icons8.com/fluency/48/phone--v1.png"
+                alt="phone--v1"
+                class="social__contact"
+              />+38(093)647-04-24</a
+            >
+          </li>
+          <li>
+            <a href="mailto:genser.artem@gmail.com">
+              <img
+                class="social__contact"
+                src="https://img.icons8.com/dusk/64/filled-message.png"
+                alt="filled-message"
+              />
+              genser.artem
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
