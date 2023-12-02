@@ -1,1 +1,204 @@
-<p>new-product works!</p>
+<form novalidate [formGroup]="productData" (ngSubmit)="onSubmit(productData)">
+    <h1>Новий Продукт</h1>
+    <div class="brand">
+      <h5>Дані бренда:</h5>
+      <div>
+        <p>Логотип:</p>
+        <div class="inputbox">
+          <div class="inputbox-content">
+            <input
+              type="text"
+              id="brands-img"
+              formControlName="brandImg"
+              required
+            />
+            <label for="brands-img">brands img url</label>
+            <span class="underline"></span>
+          </div>
+        </div>
+        <p>Назва:</p>
+        <div class="inputbox">
+          <div class="inputbox-content">
+            <input
+              type="text"
+              id="brand__title"
+              formControlName="brandTitle"
+              required
+            />
+            <label for="brand__title">brands title</label>
+            <span class="underline"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="color">
+      <h5>Колір:</h5>
+      <ul formArrayName="color">
+        <li *ngFor="let contact of color.controls; let i = index">
+          {{ contact.value }}
+          <input type="color" class="form-control" [formControlName]="i" />
+        </li>
+      </ul>
+      <div class="color__btn">
+        <button class="btn btn-success" (click)="addColor()">Add color</button>
+        <button class="btn btn-danger" (click)="deleteColor()">
+          Delete color
+        </button>
+      </div>
+    </div>
+  
+    <div class="size" formGroupName="size">
+      <h5>Розмір:</h5>
+      <div>
+        <p>
+          44:
+          <input type="checkbox" name="" id="" formControlName="44" />
+        </p>
+        <p>
+          48:
+          <input type="checkbox" name="" id="" formControlName="48" />
+        </p>
+        <p>
+          50-52:
+          <input type="checkbox" name="" id="" formControlName="50-52" />
+        </p>
+        <p>
+          46:
+          <input type="checkbox" name="" id="" formControlName="46" />
+        </p>
+        <p>
+          54:
+          <input type="checkbox" name="" id="" formControlName="54" />
+        </p>
+        <p>
+          56-58:
+          <input type="checkbox" name="" id="" formControlName="56-58" />
+        </p>
+      </div>
+    </div>
+  
+    <div class="image">
+      <h5 class="inputbox-title">Картинки:</h5>
+      <ul formArrayName="image">
+        <li *ngFor="let control of image.controls; let i = index">
+          <div class="inputbox">
+            <div class="inputbox-content">
+              <input type="text" [formControlName]="i" required />
+              <label>Image {{ i + 1 }}:</label>
+              <span class="underline"></span>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="image__btn">
+        <button class="btn btn-success" (click)="addImage()">Add Img</button>
+        <button class="btn btn-danger" (click)="deleteImage()">
+          Delete image
+        </button>
+      </div>
+    </div>
+  
+    <div class="coins">
+      <p class="inputbox-title">Ціна:</p>
+      <div class="inputbox">
+        <div class="inputbox-content">
+          <input
+            type="number"
+            id="price"
+            formControlName="price"
+            min="0"
+            required
+          />
+          <label for="price">price:</label>
+          <span class="underline"></span>
+        </div>
+      </div>
+  
+      <p class="inputbox-title">Знижка:</p>
+      <div class="inputbox">
+        <div class="inputbox-content">
+          <input
+            type="number"
+            id="sale"
+            formControlName="sale"
+            min="0"
+            required
+          />
+          <label for="sale">sale:</label>
+          <span class="underline"></span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="quantity">
+      <h5>Кількість</h5>
+      <p class="inputbox-title">Жіночий одяг:</p>
+      <div class="inputbox">
+        <div class="inputbox-content">
+          <input
+            type="number"
+            id="female"
+            formControlName="female"
+            min="0"
+            required
+          />
+          <label for="female">female:</label>
+          <span class="underline"></span>
+        </div>
+      </div>
+      <p class="inputbox-title">Чоловічий одяг:</p>
+      <div class="inputbox">
+        <div class="inputbox-content">
+          <input
+            type="number"
+            id="male"
+            formControlName="male"
+            min="0"
+            required
+          />
+          <label for="male">male:</label>
+          <span class="underline"></span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="info">
+      <p class="inputbox-title">Рейтинг:</p>
+      <div class="inputbox">
+        <div class="inputbox-content">
+          <input
+            type="number"
+            id="rating"
+            formControlName="rating"
+            min="0"
+            max="5"
+            required
+          />
+          <label for="rating">rating:</label>
+          <span class="underline"></span>
+        </div>
+      </div>
+  
+      <p class="inputbox-title">Назва продукта:</p>
+      <div class="inputbox">
+        <div class="inputbox-content">
+          <input type="text" id="title" formControlName="title" required />
+          <label for="title">Title:</label>
+          <span class="underline"></span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="type">
+      <h5>Type:</h5>
+      <div class="type__container">
+        <div class="type__container__select">
+          <select formControlName="type">
+            <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-success" type="submit" value="Click">Set data</button>
+  </form>
+  
