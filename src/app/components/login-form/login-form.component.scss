@@ -1,0 +1,64 @@
+// color
+$colorBlack: #000;
+$colorWhite: #fff;
+
+form {
+  position: relative;
+  text-align: center;
+
+  h3 {
+    position: absolute;
+    top: -48px;
+    right: -110px;
+    font-size: 3rem;
+    cursor: pointer;
+  }
+
+  h1 {
+    color: $colorWhite;
+    letter-spacing: .1em;
+    text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+
+    h4 {
+      margin: 1rem 0;
+      padding-right: 1rem;
+      font-size: 1.5rem;
+      color: #616161;
+      text-shadow: #e0e0e0 1px 1px 0;
+    }
+
+    input {
+      padding: 5px 0 5px 13px;
+      border-radius: 2rem;
+    }
+  }
+
+  .user-data{
+    display: flex;
+    flex-direction: column;
+  }
+
+  button {
+    margin-top: 10px;
+    border: $colorWhite;
+    border-radius: 2rem;
+    width: 100%;
+    background-color: $colorWhite;
+    color: $colorBlack;
+    font-size: 1.2rem;
+  }
+
+  button:hover {
+    border: none;
+    background-color: $colorBlack;
+    color: $colorWhite;
+  }
+
+}
