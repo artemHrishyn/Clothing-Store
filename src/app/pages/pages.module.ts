@@ -6,6 +6,7 @@ import { MainModule } from './main/main.module';
 import { NotFoundModule } from './not-found/not-found.module';
 import { PersonalAreaModule } from './personal-area/personal-area.module';
 import { ShoppingModule } from './shopping/shopping.module';
+import { PagesRoutingModule } from './pages-routing.module';
 
 
 
@@ -18,7 +19,8 @@ import { ShoppingModule } from './shopping/shopping.module';
     MainModule,
     NotFoundModule,
     PersonalAreaModule,
-    ShoppingModule
+    ShoppingModule,
+    PagesRoutingModule
   ]
 })
 export class PagesModule { }
