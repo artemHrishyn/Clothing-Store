@@ -16,7 +16,6 @@ export class LoginFormComponent {
 
   public loginData: FormGroup;
   
-  
   constructor(private goToUrlService: GoToUrlService) {
     this.loginData = new FormGroup({
       login: new FormControl("", Validators.required),

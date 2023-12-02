@@ -18,7 +18,6 @@ export class NewProductComponent {
   public types: string[] = Object.values(Type);
   public color: FormArray;
   public image: FormArray;
-
   public col: FormControl;
 
   @Input() show: boolean = true;
@@ -62,8 +61,6 @@ export class NewProductComponent {
       type: new FormControl("shorts", Validators.required),
     });
   }
-
-  ngOnInit(): void {}
 
   onSubmit(form: FormGroup) {
     if (form.valid) {

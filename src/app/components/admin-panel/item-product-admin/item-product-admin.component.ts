@@ -10,9 +10,7 @@ export class ItemProductAdminComponent {
   @Input() item: IAllData = {} as IAllData;
   public isSale: boolean = false;
 
-  constructor(){}
-
-  ngOnInit(): void {
+  constructor(){
     this.isSale = this.item.sale === 0 ? this.isSale : !this.isSale;
   }
 }
