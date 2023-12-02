@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
-import { LoginFormModule } from '../../login-form/login-form.module';
 import { RouterModule } from '@angular/router';
-
-
+import { FormsModule } from '@angular/forms';
+import { LoginFormModule } from '../../login-form/login-form.module';
 
 @NgModule({
   declarations: [
@@ -12,9 +11,9 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    NgModule,
-    LoginFormModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    LoginFormModule
   ],
   exports: [
     HeaderComponent
