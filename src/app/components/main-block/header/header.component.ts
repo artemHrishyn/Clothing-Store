@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { GoToUrlService } from '../../../services/go-to-url.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { GoToUrlService } from '../../../services/go-to-url.service';
     './media.scss',
   ]
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   public isShowMenu: boolean = false;
   public isLogin: boolean = false;
   public userImg: string = "assets/image/icon/user.svg";
@@ -17,8 +17,6 @@ export class HeaderComponent implements OnInit {
   constructor(
     private goToUrlService: GoToUrlService
   ) {}
-  ngOnInit(): void {
-  }
   
   public showMiniMenu():void {
     this.isShowMenu = !this.isShowMenu;

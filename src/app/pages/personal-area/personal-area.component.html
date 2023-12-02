@@ -1,1 +1,18 @@
-<p>personal-area works!</p>
+<h1 class="title">Особистий кабінет</h1>
+<div class="info">
+  <aside>
+    <p>Користувач: Admin</p>
+    <p>Пошта: genser.artem/p>
+    <hr />
+    <p class="info__sign-out" (click)="goToUrl('')">Вихід</p>
+  </aside>
+  <article>
+    <button class="btn btn-info" (click)="addProduct()">{{ add }}</button>
+    <csa-all-product-admin *ngIf="!isAdd"></csa-all-product-admin>
+    <csa-new-product
+      *ngIf="isAdd"
+      [show]="isAdd"
+      (close)="close($event)"
+    ></csa-new-product>
+  </article>
+</div>
