@@ -5,6 +5,7 @@ import { ContactsModule } from './contacts/contacts.module';
 import { MainModule } from './main/main.module';
 import { NotFoundModule } from './not-found/not-found.module';
 import { PersonalAreaModule } from './personal-area/personal-area.module';
+import { ShoppingModule } from './shopping/shopping.module';
 
 
 
@@ -16,7 +17,8 @@ import { PersonalAreaModule } from './personal-area/personal-area.module';
     ContactsModule,
     MainModule,
     NotFoundModule,
-    PersonalAreaModule
+    PersonalAreaModule,
+    ShoppingModule
   ]
 })
 export class PagesModule { }

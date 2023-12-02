@@ -10,6 +10,9 @@ import { PersonalAreaComponent } from './personal-area.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    PersonalAreaComponent
   ]
 })
 export class PersonalAreaModule { }

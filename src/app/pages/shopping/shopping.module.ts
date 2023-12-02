@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NotFoundComponent } from './not-found.component';
+import { ShoppingComponent } from './shopping.component';
 
 
 
 @NgModule({
   declarations: [
-    NotFoundComponent
+    ShoppingComponent
   ],
   imports: [
     CommonModule
   ],
-  exports: [
-    NotFoundComponent
+  exports:[
+    ShoppingComponent
   ]
 })
-export class NotFoundModule { }
+export class ShoppingModule { }
