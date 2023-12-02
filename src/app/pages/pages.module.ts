@@ -4,6 +4,8 @@ import { CatalogModule } from './catalog/catalog.module';
 import { ContactsModule } from './contacts/contacts.module';
 import { MainModule } from './main/main.module';
 import { NotFoundModule } from './not-found/not-found.module';
+import { PersonalAreaModule } from './personal-area/personal-area.module';
+import { ShoppingModule } from './shopping/shopping.module';
 
 
 
@@ -14,7 +16,9 @@ import { NotFoundModule } from './not-found/not-found.module';
     CatalogModule,
     ContactsModule,
     MainModule,
-    NotFoundModule
+    NotFoundModule,
+    PersonalAreaModule,
+    ShoppingModule
   ]
 })
 export class PagesModule { }

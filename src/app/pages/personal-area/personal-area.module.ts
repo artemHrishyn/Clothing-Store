@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NotFoundComponent } from './not-found.component';
+import { PersonalAreaComponent } from './personal-area.component';
 
 
 
 @NgModule({
   declarations: [
-    NotFoundComponent
+    PersonalAreaComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    NotFoundComponent
+    PersonalAreaComponent
   ]
 })
-export class NotFoundModule { }
+export class PersonalAreaModule { }
