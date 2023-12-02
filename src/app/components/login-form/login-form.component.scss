@@ -2,6 +2,16 @@
 $colorBlack: #000;
 $colorWhite: #fff;
 
+:host{
+  position: fixed;
+  top: 20%;
+  right: 30%;
+  z-index: 1;
+  padding: 4rem 10rem;
+  background-color: #81c1eb;
+  box-shadow: 14px 14px 64px 3px rgba(0, 0, 0, 0.53);
+}
+
 form {
   position: relative;
   text-align: center;
