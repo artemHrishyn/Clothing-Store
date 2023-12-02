@@ -39,7 +39,7 @@
     <h1>нові надходження</h1>
     <ul class="info__list">
       <li *ngFor="let item of productAll.slice(0, 5)">
-        <!-- <app-product-cart [itemProduct]="item"></app-product-cart> -->
+        <csa-product-cart [itemProduct]="item"></csa-product-cart>
       </li>
     </ul>
     <button>
@@ -53,7 +53,7 @@
     <h1>топ продажів</h1>
     <ul class="info__list">
       <li *ngFor="let item of productTop.slice(0, 5)">
-        <!-- <app-product-cart [itemProduct]="item"></app-product-cart> -->
+        <csa-product-cart [itemProduct]="item"></csa-product-cart>
       </li>
     </ul>
     <button>

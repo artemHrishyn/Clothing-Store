@@ -13,6 +13,11 @@ import { ProductInfoModule } from './product-info/product-info.module';
     BuyItemModule,
     ProductCartModule,
     ProductInfoModule
+  ],
+  exports: [
+    BuyItemModule,
+    ProductCartModule,
+    ProductInfoModule
   ]
 })
 export class ProductModule { }

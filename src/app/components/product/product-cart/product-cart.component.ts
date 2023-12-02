@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DetailsProduct } from '../../../models/detailsProduct.class';
+import { IProductBuy } from '../../../interfaces/product-buy.interface';
+import { BuyProductService } from '../../../services/buy-product.service';
+import { ProductBuy } from '../../../models/product-buy.class';
 
 @Component({
   selector: 'csa-product-cart',
@@ -7,6 +10,9 @@ import { DetailsProduct } from '../../../models/detailsProduct.class';
   styleUrls: [
     './product-cart.component.scss',
     './media.scss'
+  ],
+  providers:[
+    BuyProductService
   ]
 })
 export class ProductCartComponent implements OnInit {
@@ -20,8 +26,7 @@ export class ProductCartComponent implements OnInit {
   public isBuy: boolean = true;
 
   constructor(
-    private productService: ProductService,
-    private classProductService: ClassProductService
+    private buyProductService: BuyProductService
   ) { }
 
   ngOnInit() {
@@ -33,15 +38,15 @@ export class ProductCartComponent implements OnInit {
 
   public buyProduct(): IProductBuy {
 
-    const item: IProductBuy = this.classProductService.returnClassBuyDetailsProduct(
-      this.image,
-      this.itemProduct.title,
-      this.price,
-      this.itemProduct.sale,
-      this.counter
-    );
+    const item = new ProductBuy({
+      image: this.image,
+      title: this.itemProduct.title,
+      price: this.price,
+      sale: this.itemProduct.sale,
+      counter: this.counter
+    });
 
-    this.productService.buyProduct(item);
+    this.buyProductService.buyProduct(item);
     this.isBuy = !this.isBuy;
 
     return item;
