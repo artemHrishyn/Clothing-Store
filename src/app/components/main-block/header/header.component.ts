@@ -4,7 +4,10 @@ import { GoToUrlService } from '../../../services/go-to-url.service';
 @Component({
   selector: 'csa-header',
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrls: [
+    './header.component.scss',
+    './media.scss',
+  ]
 })
 export class HeaderComponent implements OnInit {
   public isShowMenu: boolean = false;

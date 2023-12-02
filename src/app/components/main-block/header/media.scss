@@ -1,0 +1,40 @@
+@media only screen and (min-width: 1024px) {
+
+    .title {
+      h1 {
+        font-size: 40px;
+      }
+    }
+  
+    .mini-menu {
+      display: none;
+    }
+  
+    .menu {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+    }
+  }
+  
+  @media only screen and (max-width: 1024px) {
+    .title {
+      h1 {
+        font-size: 20px;
+      }
+    }
+  
+    .mini-menu {
+      display: block;
+    }
+  
+    .menu {
+      display: none;
+    }
+  }
+  
+  @media only screen and (max-width: 1024px) {
+  
+  }
+  

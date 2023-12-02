@@ -1,43 +1,42 @@
 <form novalidate [formGroup]="loginData" (ngSubmit)="onSubmit(loginData)">
-    <h3 (click)="SignOut()">X</h3>
-    <h1>Welcome</h1>
-    <div>
-      <h4>Login:</h4>
-      <div class="user-data">
-        <input
-          type="text"
-          placeholder="Login"
-          formControlName="login"
-          name="login"
-        />
-        <p
-          *ngIf="loginData.get('login')?.invalid && loginData.get('login')?.dirty"
-        >
-          Поле обов'язкове для введення
-        </p>
-      </div>
+  <h3 (click)="SignOut()">X</h3>
+  <h1>Welcome</h1>
+  <div>
+    <h4>Login:</h4>
+    <div class="user-data">
+      <input
+        type="text"
+        placeholder="Login"
+        formControlName="login"
+        name="login"
+      />
+      <p
+        *ngIf="loginData.get('login')?.invalid && loginData.get('login')?.dirty"
+      >
+        Поле обов'язкове для введення
+      </p>
     </div>
-    <div>
-      <h4>Password:</h4>
-      <div class="user-data">
-        <input
-          #password
-          type="password"
-          placeholder="Password"
-          formControlName="password"
-          name="password"
-        />
-        <p
-          *ngIf="
-            loginData.get('password')?.invalid && loginData.get('password')?.dirty
-          "
-        >
-          Поле обов'язкове для введення
-        </p>
-      </div>
+  </div>
+  <div>
+    <h4>Password:</h4>
+    <div class="user-data">
+      <input
+        #password
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+        name="password"
+      />
+      <p
+        *ngIf="
+          loginData.get('password')?.invalid && loginData.get('password')?.dirty
+        "
+      >
+        Поле обов'язкове для введення
+      </p>
     </div>
-    <button type="submit" value="Click" [disabled]="loginData.invalid">
-      Вхід
-    </button>
-  </form>
-  
+  </div>
+  <button type="submit" value="Click" [disabled]="loginData.invalid">
+    Вхід
+  </button>
+</form>

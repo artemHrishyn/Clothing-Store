@@ -1,4 +1,5 @@
-<nav>
+<header>
+  <nav>
     <div class="title">
       <img
         src="assets/image/icon/menu.svg"
@@ -41,10 +42,13 @@
     </li>
   </ul>
 
-  <app-login-form
-    *ngIf="isLogin"
-    [isLogin]="isLogin"
-    (closeLogin)="returnLogin()"
-    [imgLogin]="userImg"
-    (returnImgLogin)="returnImage($event)"
-  ></app-login-form>
+
+<csa-login-form
+  *ngIf="isLogin"
+  [isLogin]="isLogin"
+  (closeLogin)="returnLogin()"
+  [imgLogin]="userImg"
+  (returnImgLogin)="returnImage($event)"
+></csa-login-form>
+
+</header>

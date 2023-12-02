@@ -1,64 +1,117 @@
+@import '_mixin.scss';
+
 // color
 $colorBlack: #000;
 $colorWhite: #fff;
+$colorActive: #ea0606;
 
-form {
-  position: relative;
-  text-align: center;
+// font
+$fontFamilySatoshi: Satoshi sans-serif;
 
-  h3 {
-    position: absolute;
-    top: -48px;
-    right: -110px;
-    font-size: 3rem;
-    cursor: pointer;
-  }
+$sizeWidth: 3vw;
+
+header {
+  background-color: $colorBlack;
+  width: 100%;
+  padding: 0 32px;
+}
+
+nav {
+  display: grid;
+  @include gridTemplateColumnsHead();
+  justify-items: center;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.title {
+  display: flex;
+  width: 100%;
+  align-items: center;
 
   h1 {
     color: $colorWhite;
-    letter-spacing: .1em;
-    text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c;
+    font-family: $fontFamilySatoshi;
+    cursor: pointer;
   }
+}
 
-  div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px 0;
+.mini-menu {
+  margin: 0 32px;
+  @include sizeClamp(max-width, 16px, $sizeWidth, 48px);
+}
 
-    h4 {
-      margin: 1rem 0;
-      padding-right: 1rem;
-      font-size: 1.5rem;
-      color: #616161;
-      text-shadow: #e0e0e0 1px 1px 0;
+.menu {
+  @include sizeClamp(max-width, 395px, $sizeWidth, 500px);
+  width: 100%;
+
+  li {
+    @include sizeClamp(margin-right, 16px, $sizeWidth, 160px);
+
+    a {
+      text-decoration: none;
+      color: $colorWhite;
+      font-family: $fontFamilySatoshi;
+      font-size: 30px;
+      font-weight: 400;
+
+      &.active {
+        cursor: not-allowed;
+        pointer-events: none;
+        opacity: 0.5;
+      }
+
+      &:hover {
+        color: rgb(106, 255, 193);
+      }
     }
-
-    input {
-      padding: 5px 0 5px 13px;
-      border-radius: 2rem;
-    }
   }
+}
 
-  .user-data{
-    display: flex;
-    flex-direction: column;
+
+.personal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+
+  >img {
+    margin: 0 2rem;
+    @include sizeClamp(max-width, 1rem, $sizeWidth, 3rem);
+    cursor: pointer;
   }
+}
 
-  button {
-    margin-top: 10px;
-    border: $colorWhite;
-    border-radius: 2rem;
-    width: 100%;
-    background-color: $colorWhite;
-    color: $colorBlack;
-    font-size: 1.2rem;
-  }
+.menu-2 {
+  display: flex;
+  justify-content: space-around;
 
-  button:hover {
-    border: none;
-    background-color: $colorBlack;
+  a {
+    text-decoration: none;
     color: $colorWhite;
-  }
+    font-family: $fontFamilySatoshi;
+    @include sizeClamp(font-size, 1rem, $sizeWidth, 1.5rem);
+    font-weight: 400;
 
+    &.active {
+      cursor: not-allowed;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    &:hover {
+      color: rgb(106, 255, 193);
+    }
+  }
+}
+
+
+app-login-form{
+  position: fixed;
+  top: 20%;
+  right: 30%;
+  z-index: 1;
+  padding: 4rem 10rem;
+  background-color: #81c1eb;
+  box-shadow: 14px 14px 64px 3px rgba(0, 0, 0, 0.53);
 }
