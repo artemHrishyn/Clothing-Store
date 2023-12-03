@@ -1,1 +1,43 @@
-<p>shopping works!</p>
+<div class="shopping">
+    <h1>Мої замовлення</h1>
+  
+    <div class="shopping__empty" *ngIf="isEmpty">
+      <h2>Список замовлень пустий</h2>
+      <img src="assets/image/emptyBuy.jpg" alt="shop" />
+      <p>Ви ще нічого не замовляли</p>
+      <button (click)="backMainPage('main')">Перейти на головну</button>
+    </div>
+  
+    <div class="shopping__info" *ngIf="!isEmpty">
+      <div>
+        <ul id="scrollbar">
+          <li class="shopping__info__item" *ngFor="let item of boughtProductsNew">
+            <csa-buy-item
+              #buyComponent
+              [itemProduct]="item"
+              (onDelete)="Delate($event)"
+              (onCounter)="onCounterReceived($event)"
+            ></csa-buy-item>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <div class="shopping__info__item">
+          <h2>Разом:</h2>
+          <p>
+            5 товарів на суму <span>{{ totalSum }} UAH</span>
+          </p>
+          <p>Вартість доставки за тарифами перевізника</p>
+  
+          <div>
+            <p>
+              До сплати <span>{{ totalSum }} UAH</span>
+            </p>
+          </div>
+  
+          <button>оформити замовлення</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

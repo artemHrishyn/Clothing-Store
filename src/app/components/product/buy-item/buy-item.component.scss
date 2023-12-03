@@ -1,0 +1,54 @@
+$colorBlack: #000;
+$fontFamilySatoshi: Satoshi sans-serif;
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.info {
+  position: relative;
+  padding: 10px;
+
+  >span {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    cursor: pointer;
+  }
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+p {
+  color: $colorBlack;
+  font-size: 1rem;
+}
+
+.quantity {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 170px;
+  width: 100%;
+  border-radius: 2rem;
+  margin-right: 10px;
+  background-color: #f0f0f0;
+  color: $colorBlack;
+  font-family: $fontFamilySatoshi;
+
+  span {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .quantity__count {
+    font-size: 2rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}

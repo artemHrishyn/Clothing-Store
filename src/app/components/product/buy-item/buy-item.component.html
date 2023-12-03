@@ -1,1 +1,12 @@
-<p>buy-item works!</p>
+<img src="{{ itemProduct.image }}" alt="buy item" />
+<div class="info">
+  <h3>{{ itemProduct.title }}</h3>
+  <span (click)="Delate()">X</span>
+  <p>Ціна: {{ itemProduct.price }} UAH</p>
+  <p>Сума: {{ sumItem }} UAH</p>
+  <div class="quantity">
+    <span class="quantity__count" (click)="productCounter('minus')">-</span
+    ><span>{{ itemProduct.counter }}</span
+    ><span class="quantity__count" (click)="productCounter('plus')">+</span>
+  </div>
+</div>

@@ -11,7 +11,7 @@ export class BrandImageService {
 
   constructor(
     private DataCollections: DataCollectionsService,
-    private mixElements: MixElementsPipe
+    private mixElements: MixElementsPipe,
   ) { }
 
   public returnBrandsArray(): Observable< string[] > {

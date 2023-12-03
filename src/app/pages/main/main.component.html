@@ -1,1 +1,109 @@
-<p>main works!</p>
+<section class="global-info">
+    <div>
+      <h1>знайти одяг, який відповідає вашому стилю</h1>
+      <p>
+        Перегляньте наш різноманітний асортимент ретельно створеного одягу,
+        розробленого, щоб підкреслити вашу індивідуальність і задовольнити ваше
+        почуття стилю.
+      </p>
+      <a (click)="goToUrl('catalog')">Здійснити покупку</a>
+      <ul>
+        <li>
+          <h3>{{ totalBrands }} +</h3>
+          <p>Міжнародні бренди</p>
+        </li>
+        <li>
+          <h3>{{ totalProduct }} +</h3>
+          <p>Продукти високої якості</p>
+        </li>
+        <li>
+          <h3>30,000+</h3>
+          <p>Щасливі клієнти</p>
+        </li>
+      </ul>
+    </div>
+    <img src="assets/image/clothes.png" alt="clothes" class="global-info__img" />
+  </section>
+  <!-- main info -->
+  
+  <!-- brand -->
+  <ul class="brand">
+    <li *ngFor="let imageUrl of imgBrands">
+      <img [src]="imageUrl" alt="Image" />
+    </li>
+  </ul>
+  <!-- brand end -->
+  
+  <!-- arrivals -->
+  <section class="selling">
+    <h1>нові надходження</h1>
+    <ul class="info__list">
+      <li *ngFor="let item of productAll.slice(0, 5)">
+        <csa-product-cart [itemProduct]="item"></csa-product-cart>
+      </li>
+    </ul>
+    <button>
+      <span class="buy" (click)="goToUrl('catalog')">Подивитись все</span>
+    </button>
+  </section>
+  <!-- arrivals end -->
+  
+  <!-- selling -->
+  <section class="selling">
+    <h1>топ продажів</h1>
+    <ul class="info__list">
+      <li *ngFor="let item of productTop.slice(0, 5)">
+        <csa-product-cart [itemProduct]="item"></csa-product-cart>
+      </li>
+    </ul>
+    <button>
+      <span class="buy" (click)="goToUrl('catalog')">Подивитись все</span>
+    </button>
+  </section>
+  <!-- selling end -->
+  
+  <!-- reviews -->
+  <section class="reviews">
+    <h1>Що говорять наші клієнти.</h1>
+  
+    <ul>
+      <li *ngFor="let item of reviews">
+        <csa-reviews [itemReviews]="item"></csa-reviews>
+      </li>
+    </ul>
+  </section>
+  <!-- reviews end -->
+  
+  <!-- service -->
+  <section class="service">
+    <ul>
+      <li>
+        <div class="service__img">
+          <img src="assets/image/delivery/return.svg" alt="return product" />
+        </div>
+        <p class="service__text">
+          Легка заміна протягом 7 днів, лише якщо продукт несправний
+        </p>
+      </li>
+      <li>
+        <div class="service__img">
+          <img src="assets/image/delivery/delivery.svg" alt="delivery product" />
+        </div>
+        <p class="service__text">
+          Безкоштовна доставка додому Ми не продаємо вашу інформацію
+        </p>
+      </li>
+      <li>
+        <div class="service__img">
+          <img
+            src="assets/image/delivery/guaranteed.svg"
+            alt="guaranteed product"
+          />
+        </div>
+        <p class="service__text">
+          Гарантована якість. Якість кожного продукту гарантовано
+        </p>
+      </li>
+    </ul>
+  </section>
+  
