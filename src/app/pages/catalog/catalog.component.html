@@ -47,10 +47,10 @@
       <div class="catalog">
         <ul class="catalog__list">
           <li *ngFor="let item of showArrayProducts">
-            <app-product-cart
+            <csa-product-cart
               [itemProduct]="item"
               (productClicked)="handleProductClicked($event)"
-            ></app-product-cart>
+            ></csa-product-cart>
           </li>
         </ul>
       </div>

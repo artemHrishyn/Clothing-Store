@@ -4,6 +4,8 @@ import { DetailsProduct } from '../../models/detailsProduct.class';
 import { IProductDetails } from '../../interfaces/product-details.interface';
 import { AllProductService } from '../../services/product/all-product.service';
 import { DataCollectionsService } from '../../services/firebase/data-collections.service';
+import { CatalogProductService } from '../../services/product/catalog-product.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'csa-catalog',
@@ -14,9 +16,10 @@ export class CatalogComponent {
 
   public valueProduct: IProductDetails = {} as IProductDetails;
 
-  private isShorts: boolean = false;
-  private isSneakers: boolean = false;
-  private isTShirts: boolean = false;
+  private subscribe: Subscription | null = null;
+  // private isShorts: boolean = false;
+  // private isSneakers: boolean = false;
+  // private isTShirts: boolean = false;
 
   public showArrayProducts: DetailsProduct[] = [];
   public reservArrayProducts: DetailsProduct[] = [];
@@ -28,8 +31,8 @@ export class CatalogComponent {
 
   constructor(
     private allProduct: AllProductService,
-    private dataCollections: DataCollectionsService
-    private classProductService: ClassProductService
+    private dataCollections: DataCollectionsService,
+    private catalogProduct: CatalogProductService
   ) {}
 
   ngOnInit(): void {
@@ -46,33 +49,14 @@ export class CatalogComponent {
 
   // Вивод товару згідно філтру
   public filterCategory(category: string) {
-    this.dataProcessingService.returnCatalogAllProducts(category).subscribe((data: DetailsProduct[]) => {
+    
+    this.subscribe = this.catalogProduct.returnCatalogProducts(category).subscribe(data =>{
+      console.log(data);
       this.category = "";
       let isValue: boolean = false;
-      switch (category) {
-        case "shorts":
-          this.isShorts = !this.isShorts;
-          isValue = this.isShorts;
-          this.category =  this.isShorts ? "Shorts" : "";
-          break;
-        case "sneakers":
-          this.isSneakers = !this.isSneakers;
-          isValue = this.isSneakers;
-          this.category =  this.isSneakers ? "Sneakers" : "";
-          break;
-        case "tshirt":
-          this.isTShirts = !this.isTShirts;
-          isValue = this.isTShirts;
-          this.category = this.isTShirts ? "T-Shirts" : "";
-          break;
-
-        default:
-          this.showArrayProducts = this.mainProducts;
-          break;
-      }
       this.showArrayProducts = isValue ? data : this.mainProducts;
       this.isShowProduct = false;
-    });
+    })
   }
 
   public handleProductClicked(product: DetailsProduct): void {
@@ -86,11 +70,11 @@ export class CatalogComponent {
       if (foundItem) {
         this.isShowProduct = true;
 
-        const value = this.classProductService.returnClassDetailsProduct(foundItem);
-        this.valueProduct = value;
-        this.titleProduct = value.title;
-        this.category = "";
-        this.category = value.type + " > " + this.titleProduct;
+        // const value = this.classProductService.returnClassDetailsProduct(foundItem);
+        // this.valueProduct = value;
+        // this.titleProduct = value.title;
+        // this.category = "";
+        // this.category = value.type + " > " + this.titleProduct;
       }
     });
   }

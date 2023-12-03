@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { DetailsProduct } from '../models/detailsProduct.class';
+import { DetailsProduct } from '../../models/detailsProduct.class';
 import { AllProductService } from './all-product.service';
 
 @Injectable({
