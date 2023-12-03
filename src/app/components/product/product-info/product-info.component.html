@@ -59,7 +59,10 @@
           ><span>{{ counter }}</span
           ><span class="quantity__count" (click)="productCounter('plus')">+</span>
         </div>
-        <div class="buy" (click)="buyProduct()">Add to Cart</div>
+        <button class="buy" (click)="buyProduct()" *ngIf="isBuy">
+          Замовити
+        </button>
+        <button class="buy" *ngIf="!isBuy">Додано до корзини</button>
       </div>
     </div>
   </div>

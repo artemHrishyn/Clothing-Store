@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DetailsProduct } from '../../../models/detailsProduct.class';
-import { IProductBuy } from '../../../interfaces/product-buy.interface';
 import { ProductBuy } from '../../../models/product-buy.class';
 import { BuyProductService } from '../../../services/product/buy-product.service';
 
@@ -10,9 +9,6 @@ import { BuyProductService } from '../../../services/product/buy-product.service
   styleUrls: [
     './product-cart.component.scss',
     './media.scss'
-  ],
-  providers:[
-    BuyProductService
   ]
 })
 export class ProductCartComponent implements OnInit {
@@ -24,7 +20,7 @@ export class ProductCartComponent implements OnInit {
   public price: number = 0;
 
   public isBuy: boolean = true;
-
+  
   constructor(
     private buyProductService: BuyProductService
   ) { }
@@ -36,20 +32,18 @@ export class ProductCartComponent implements OnInit {
     this.price = (this.itemProduct.sale === 0) ? this.itemProduct.price : this.itemProduct.sale;
   }
 
-  public buyProduct(): IProductBuy {
+  public buyProduct() {
 
     const item: ProductBuy = new ProductBuy({
       image: this.image,
       title: this.itemProduct.title,
-      price: this.price,
+      price: this.itemProduct.price,
       sale: this.itemProduct.sale,
       counter: this.counter
     });
 
-    this.buyProductService.buyProduct(item);
     this.isBuy = !this.isBuy;
-
-    return item;
+    this.buyProductService.buyProduct(item);
   }
 
   public createStar(value: number): string {

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GoToUrlService } from './go-to-url.service';
+import { BuyProductService } from './product/buy-product.service';
 
 
 
@@ -10,7 +11,8 @@ import { GoToUrlService } from './go-to-url.service';
     CommonModule
   ],
   providers:[
-    GoToUrlService
+    GoToUrlService,
+    BuyProductService
   ]
 })
 export class ServicesModule { }
