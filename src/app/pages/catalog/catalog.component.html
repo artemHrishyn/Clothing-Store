@@ -1,1 +1,83 @@
-<p>catalog works!</p>
+<section>
+    <div class="filter">
+      <h1>{{ category }}</h1>
+      <ul class="filter__sort">
+        <li (click)="filterCategory('shorts')">
+          <img
+            src="https://img.icons8.com/external-goofy-color-kerismaker/96/external-Short-summer-goofy-color-kerismaker.png"
+            alt="external-Short-summer-goofy-color-kerismaker"
+          />Шорти
+        </li>
+        <li (click)="filterCategory('tshirt')">
+          <img
+            src="https://img.icons8.com/cotton/64/t-shirt--v1.png"
+            alt="t-shirt--v1"
+          />Футболки
+        </li>
+        <li (click)="filterCategory('sneakers')">
+          <img
+            src="https://img.icons8.com/external-smashingstocks-flat-smashing-stocks/66/external-Sneakers-shoes-and-footwear-smashingstocks-flat-smashing-stocks-21.png"
+            alt="external-Sneakers-shoes-and-footwear-smashingstocks-flat-smashing-stocks-21"
+          />Кросівки
+        </li>
+      </ul>
+    </div>
+  
+    <!-- Список усієї продукції -->
+  
+    <div class="list-product" *ngIf="!isShowProduct">
+      <nav>
+        <ul class="pagination pagination-lg">
+          <li class="page-item">
+            <a class="page-link" (click)="changePage(0, 10)">1</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" (click)="changePage(10, 20)">2</a>
+          </li>
+          <li class="page-item">
+            <a
+              class="page-link"
+              (click)="changePage(20, reservArrayProducts.length)"
+              >3</a
+            >
+          </li>
+        </ul>
+      </nav>
+  
+      <div class="catalog">
+        <ul class="catalog__list">
+          <li *ngFor="let item of showArrayProducts">
+            <app-product-cart
+              [itemProduct]="item"
+              (productClicked)="handleProductClicked($event)"
+            ></app-product-cart>
+          </li>
+        </ul>
+      </div>
+  
+      <nav>
+        <ul class="pagination pagination-lg">
+          <li class="page-item">
+            <a class="page-link" (click)="changePage(0, 10)">1</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" (click)="changePage(10, 20)">2</a>
+          </li>
+          <li class="page-item">
+            <a
+              class="page-link"
+              (click)="changePage(20, reservArrayProducts.length)"
+              >3</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+  
+    <!-- Детальна інформація конкретного товара -->
+    <!-- <csa-product-info
+      *ngIf="isShowProduct"
+      [itemProduct]="valueProduct"
+    ></csa-product-info> -->
+  </section>
+  
