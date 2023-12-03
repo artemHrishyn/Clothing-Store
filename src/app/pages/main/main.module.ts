@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainComponent } from './main.component';
+import { ProductModule } from '../../components/product/product.module';
+import { ReviewsModule } from '../../components/reviews/reviews.module';
 
 
 
@@ -9,7 +11,9 @@ import { MainComponent } from './main.component';
     MainComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ProductModule,
+    ReviewsModule
   ],
   exports:[
     MainComponent

@@ -1,0 +1,25 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: azure;
+    padding: 10px;
+    border-radius: 40px;
+  }
+  
+  img{
+    margin-bottom: 10px;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+  
+  .date{
+    font-weight: 500;
+  }
+  
+  span{
+    font-weight: 500;
+  }
+  

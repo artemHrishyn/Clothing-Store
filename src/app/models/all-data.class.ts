@@ -5,7 +5,7 @@ export class GlobalCategory implements IGlobalCategory {
     public sneakers: { [key: string]: IAllData; } = {};
     public tshirt: { [key: string]: IAllData; } = {};
     
-    constructor(obj: GlobalCategory) {
+    constructor(obj: IGlobalCategory) {
         Object.assign(this, obj)
     }
 }

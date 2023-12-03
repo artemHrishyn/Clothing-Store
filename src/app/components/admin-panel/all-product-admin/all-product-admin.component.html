@@ -1,0 +1,11 @@
+<form>
+    <label for="brand">Бренд товару:</label>
+    <input type="text" id="brand" #input1 (keyup)="show(input1.value)" />
+  </form>
+  
+  <ul class="list-products">
+    <li *ngFor="let item of items">
+      <csa-item-product-admin [item]="item"></csa-item-product-admin>
+    </li>
+  </ul>
+  
