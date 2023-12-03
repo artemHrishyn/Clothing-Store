@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainComponent } from './main.component';
 import { ProductModule } from '../../components/product/product.module';
+import { ReviewsModule } from '../../components/reviews/reviews.module';
 
 
 
@@ -12,7 +13,7 @@ import { ProductModule } from '../../components/product/product.module';
   imports: [
     CommonModule,
     ProductModule,
-    // ReviewsModule
+    ReviewsModule
   ],
   exports:[
     MainComponent
