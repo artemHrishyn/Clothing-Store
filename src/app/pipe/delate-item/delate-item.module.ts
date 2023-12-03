@@ -10,12 +10,6 @@ import { DeleteItemPipe } from './delete-item.pipe';
   ],
   imports: [
     CommonModule
-  ],
-  exports: [
-    DeleteItemPipe
-  ],
-  providers: [
-    DeleteItemPipe
   ]
 })
-export class DeleteItemModule { }
+export class DelateItemModule { }

@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ServicesModule } from './services/services.module';
 import { PagesModule } from './pages/pages.module';
 import { MainBlockModule } from './components/main-block/main-block.module';
-import { PipeModule } from './pipe/pipe.module';
+import { PipesModule } from './pipe/pipes.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { PipeModule } from './pipe/pipe.module';
     MainBlockModule,
     ServicesModule,
     PagesModule,
-    PipeModule,
+    PipesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
