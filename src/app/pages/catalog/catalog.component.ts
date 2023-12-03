@@ -70,11 +70,20 @@ export class CatalogComponent {
       if (foundItem) {
         this.isShowProduct = true;
 
-        // const value = this.classProductService.returnClassDetailsProduct(foundItem);
-        // this.valueProduct = value;
-        // this.titleProduct = value.title;
-        // this.category = "";
-        // this.category = value.type + " > " + this.titleProduct;
+        const value = new DetailsProduct({
+          color:  foundItem.color,
+          image:  foundItem.image,
+          price:  foundItem.price,
+          rating: foundItem.rating,
+          sale:   foundItem.sale,
+          size:   foundItem.size,
+          title:  foundItem.title,
+          type:   foundItem.type
+        });
+        this.valueProduct = value;
+        this.titleProduct = value.title;
+        this.category = "";
+        this.category = value.type + " > " + this.titleProduct;
       }
     });
   }
