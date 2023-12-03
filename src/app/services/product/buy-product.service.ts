@@ -12,10 +12,9 @@ export class BuyProductService {
   buyProduct(product: IProductBuy ) {
     this.boughtProducts.push(product);
   }
-
   
   getBoughtProducts() {
-
+    
     this.boughtProductsNew = this.boughtProductsNew.filter((product, index, self) =>
       index === self.findIndex((p) =>
         p.image === product.image &&
