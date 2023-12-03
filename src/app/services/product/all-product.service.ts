@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { DetailsProduct } from '../models/detailsProduct.class';
-import { IAllData } from '../interfaces/all-data.interface';
-import { DataCollectionsService } from './firebase/data-collections.service';
-import { MixElementsPipe } from '../pipe/mix-elements/mix-elements.pipe';
+import { DataCollectionsService } from '../firebase/data-collections.service';
+import { MixElementsPipe } from '../../pipe/mix-elements/mix-elements.pipe';
+import { DetailsProduct } from '../../models/detailsProduct.class';
+import { IAllData } from '../../interfaces/all-data.interface';
 
 @Injectable({
   providedIn: 'root'

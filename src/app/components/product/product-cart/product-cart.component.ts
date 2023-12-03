@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DetailsProduct } from '../../../models/detailsProduct.class';
 import { IProductBuy } from '../../../interfaces/product-buy.interface';
-import { BuyProductService } from '../../../services/buy-product.service';
 import { ProductBuy } from '../../../models/product-buy.class';
+import { BuyProductService } from '../../../services/product/buy-product.service';
 
 @Component({
   selector: 'csa-product-cart',
@@ -38,7 +38,7 @@ export class ProductCartComponent implements OnInit {
 
   public buyProduct(): IProductBuy {
 
-    const item = new ProductBuy({
+    const item: ProductBuy = new ProductBuy({
       image: this.image,
       title: this.itemProduct.title,
       price: this.price,
