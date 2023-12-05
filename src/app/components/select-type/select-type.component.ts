@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Types } from '../../interfaces/type.enum';
 import { IAllData } from '../../interfaces/all-data.interface';
+import { ReturnTypeService } from '../../services/product/return-type.service';
 
 @Component({
   selector: 'csa-select-type',
@@ -9,20 +10,14 @@ import { IAllData } from '../../interfaces/all-data.interface';
 })
 export class SelectTypeComponent {
   
-  @Output() onType: EventEmitter<string> = new EventEmitter<string>();
   public types: string[] = Object.values(Types);
-  public items: IAllData[] = [];
-  public itemRezerv: IAllData[] = [];
+  
+  constructor(
+    private returnType: ReturnTypeService
+  ){}
   
   // Вивод товару згідно філтру
   public filterCategory(type: string) {
-    
-    this.onType.emit('type');
-    this.items = [];
-    if (type != 'All') {
-      this.items = this.itemRezerv.filter(elem => (elem.type == type));
-    } else {
-      this.items = this.itemRezerv;
-    }
+    this.returnType.value = type;
   }
 }
