@@ -1,0 +1,244 @@
+@import '_mixin.scss';
+// color
+$colorBlack: #000;
+$colorWhite: #fff;
+
+// // font
+$fontFamilyIntegral: Integral CF sans-serif;
+$fontFamilySatoshi: Satoshi sans-serif;
+$fontFamilyInter: Inter sans-serif;
+
+.global-info {
+  display: grid;
+  @include gridTemplateGlobalInfo();
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    h1 {
+      color: $colorBlack;
+      font-family: $fontFamilyIntegral;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    p {
+      text-align: justify;
+      color: $colorBlack;
+      font-family: $fontFamilySatoshi;
+      font-weight: 400;
+    }
+
+    a {
+      text-decoration: none;
+      border-radius: 25px;
+      background-color: $colorBlack;
+      color: $colorWhite;
+      font-family: $fontFamilySatoshi;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+
+      h3 {
+        color: $colorBlack;
+        font-family: $fontFamilySatoshi;
+        font-weight: 700;
+      }
+
+      p {
+        color: $colorBlack;
+        font-family: $fontFamilySatoshi;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+.brand {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: $colorBlack;
+  width: 100%;
+  list-style: none;
+
+  li {
+    display: flex;
+    background-color: $colorWhite;
+    padding: .64px;
+    width: 100%;
+
+    img {
+      margin: auto;
+    }
+  }
+}
+
+.selling {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    color: #444;
+    text-shadow: 1px 0px 1px #CCC, 0px 1px 1px #EEE, 2px 1px 1px #CCC, 1px 2px 1px #EEE, 3px 2px 1px #CCC, 2px 3px 1px #EEE, 4px 3px 1px #CCC, 3px 4px 1px #EEE, 5px 4px 1px #CCC, 4px 5px 1px #EEE, 6px 5px 1px #CCC, 5px 6px 1px #EEE, 7px 6px 1px #CCC;
+    font-family: $fontFamilyIntegral;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .info__list {
+    list-style: none;
+    display: grid;
+
+    li {
+      max-width: 250px;
+      width: 100%;
+      margin: 24px;
+      box-shadow: 6px 12px 12px 4px #bab8b87d;
+
+      app-products {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+      }
+    }
+  }
+
+  a {
+    margin-top: 32px;
+    border: 2px solid hsl(0, 0%, 50%);
+    border-radius: 32px;
+    padding: 8px 16px;
+    color: $colorBlack;
+    font-family: $fontFamilySatoshi;
+    font-size: 24px;
+    font-weight: 500;
+    text-transform: capitalize;
+    text-decoration: none;
+  }
+
+  a:hover {
+    border: none;
+    color: $colorWhite;
+    background-color: $colorBlack;
+  }
+
+  button {
+    border: none;
+    background-color: inherit;
+    line-height: 1;
+    color: currentColor;
+    position: relative;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 2em;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 2px solid currentColor;
+      background-color: inherit;
+      pointer-events: none;
+      mix-blend-mode: darken;
+      filter: contrast(1200%) brightness(100%) saturate(0.25);
+      overflow: hidden;
+      background:
+        linear-gradient(182deg, currentColor, currentColor 25%, $colorBlack),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 400 75' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    &:hover {
+      .buy {
+        transform: translate(0px, 0px);
+        transition: .2s ease-in-out;
+        color: $colorWhite;
+        background-color: $colorBlack;
+      }
+    }
+  }
+}
+
+.buy {
+  background-color: $colorWhite;
+  display: inherit;
+  border: 2px solid currentColor;
+  border-radius: 32px;
+  position: relative;
+  z-index: 1;
+  transform: translate(-6px, -6px);
+  transition: .2s ease-in-out;
+}
+
+/* reviews */
+.reviews {
+  display: flex;
+  flex-direction: column;
+  margin: 64px;
+  padding: 20px;
+  background-image: url("/assets/image/bg-reviews.jpg");
+
+  h1 {
+    margin: 50px;
+    color: $colorBlack;
+    font-family: $fontFamilyInter;
+    font-size: 50px;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-align: center;
+  }
+
+  ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+
+    li{
+      max-width: 250px;
+      width: 100%;
+    }
+  }
+}
+
+/* service */
+.service {
+  display: flex;
+
+  ul {
+    margin: 56px auto;
+    display: grid;
+    list-style: none;
+    // align-items: center;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      max-width: 480px;
+      width: 100%;
+      align-items: center;
+    }
+
+    .service__img {
+      width: 100%;
+      background-color: $colorBlack;
+    }
+
+    .service__text {
+      color: $colorBlack;
+      font-family: $fontFamilyIntegral;
+      font-weight: 400;
+      margin: 0 12px;
+    }
+  }
+}

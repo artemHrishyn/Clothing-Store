@@ -1,0 +1,42 @@
+<!-- <button>Edit</button> -->
+<h1>{{ item.title }}</h1>
+<img [src]="item.brandImg" alt="" class="brand" />
+<div class="color">
+  <h5>Колір:</h5>
+  <ul>
+    <li *ngFor="let color of item.color" [style.background-color]="color"></li>
+  </ul>
+</div>
+<div class="image">
+  <h5>Image:</h5>
+  <ul>
+    <li *ngFor="let item of images">
+      <img [src]="item" alt="" />
+    </li>
+  </ul>
+</div>
+<div class="coins">
+  <p><span> Ціна:</span> {{ item.price }}</p>
+  <p *ngIf="isSale"><span>Знижка:</span> {{ item.sale }}</p>
+</div>
+<div class="quantity">
+  <h5>Кількість товару:</h5>
+  <ul>
+    <li>
+      Жіночий одяг: <span>{{ item.female }}</span>
+    </li>
+    <li>
+      Чоловічий одяг: <span>{{ item.male }}</span>
+    </li>
+  </ul>
+</div>
+<p><span>Райтінг товару:</span> <csa-rating [ratingValue]="item.rating"></csa-rating></p>
+<div class="size">
+  <h5>Розміри товара:</h5>
+  <ul>
+    <li *ngFor="let size of item.size | keyvalue">
+      <span>{{ size.key }}:</span> {{ size.value }}
+    </li>
+  </ul>
+</div>
+<p><span>Тип:</span> {{ item.type | uppercase }}</p>

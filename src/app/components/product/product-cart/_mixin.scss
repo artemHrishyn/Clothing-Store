@@ -1,0 +1,20 @@
+@mixin animationColor($changeColor, $property) {
+    @keyframes #{$changeColor} {
+        0% {
+        #{$property}: #50eb21;
+        }
+
+        33% {
+        #{$property}: #fd0000;
+        }
+
+        66% {
+        #{$property}: black;
+        }
+
+        100% {
+        #{$property}: #50eb21;
+        }
+    }
+}
+  

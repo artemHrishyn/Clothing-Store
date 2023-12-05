@@ -1,0 +1,28 @@
+<div class="diamond-container">
+    <div class="diamond">
+      <div class="diamond-wrapper">
+        <div class="diamond-content">{{ price }}<br />UAH</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="item-wrapper">
+    <div class="content-wrapper">
+      <div class="img-container">
+        <img [src]="image" alt="product" (click)="openProduct()" />
+      </div>
+  
+      <div class="content-text">
+        <p class="rating">
+          Рейтинг:
+          <csa-rating [ratingValue]="itemProduct.rating"></csa-rating>
+        </p>
+        <p class="item-name">{{ itemProduct.title }}</p>
+      </div>
+    </div>
+    <button class="view-more-btn" (click)="buyProduct()" *ngIf="isBuy">
+      Замовити
+    </button>
+    <button class="view-more-btn" *ngIf="!isBuy">Додано до корзини</button>
+  </div>
+  
