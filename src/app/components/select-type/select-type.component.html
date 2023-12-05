@@ -1,0 +1,5 @@
+<div class="select">
+    <select #select (click)="filterCategory(select.value)">
+        <option *ngFor="let type of types" [value]="type" >{{ type }}</option>
+    </select>
+</div>

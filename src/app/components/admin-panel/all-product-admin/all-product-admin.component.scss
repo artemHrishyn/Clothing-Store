@@ -14,60 +14,6 @@ form{
   height: 50px;
 }
 
-.type {
-  --background-gradient: linear-gradient(178deg, #ffff33 10%, #3333ff);
-  --gray: #34495e;
-  --darkgray: #434343;
-  max-width: 200px;
-  width: 100%;
-
-  /* Custom Select wrapper */
-  &__select {
-    position: relative;
-    display: flex;
-    height: 3em;
-    border-radius: 1.25em;
-    overflow: hidden;
-
-    select {
-      /* Reset Select */
-      appearance: none;
-      outline: 10px red;
-      border: 0;
-      box-shadow: none;
-      /* Personalize */
-      flex: 1;
-      padding: 0 1em;
-      color: #fff;
-      background-color: var(--darkgray);
-      background-image: none;
-      cursor: pointer;
-
-      /* Remove IE arrow */
-      &::-ms-expand {
-        display: none;
-      }
-    }
-
-    /* Arrow */
-    &::after {
-      content: '\25BC';
-      position: absolute;
-      top: 0;
-      right: 0;
-      padding: 1em;
-      background-color: #81868b;
-      transition: .25s all ease;
-      pointer-events: none;
-    }
-
-    /* Transition */
-    &:hover::after {
-      color: #f39c12;
-    }
-  }
-}
-
 .list-products {
   list-style: none;
   display: flex;

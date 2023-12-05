@@ -1,14 +1,7 @@
 <form>
   <label for="brand">Бренд товару:</label>
   <input type="text" id="brand" #input (keyup)="searchBrandTitle(input.value)" />
-  
-  <div class="type">
-    <div class="type__select">
-      <select #select (click)="filterCategory(select.value)">
-        <option *ngFor="let type of types" [value]="type" >{{ type }}</option>
-      </select>
-    </div>
-  </div>
+  <csa-select-type (onType)="type"></csa-select-type>
 </form>
   
 <ul class="list-products">
