@@ -10,8 +10,8 @@
 <div class="image">
   <h5>Image:</h5>
   <ul>
-    <li *ngFor="let image of item.image">
-      <img [src]="image" alt="" />
+    <li *ngFor="let item of images">
+      <img [src]="item" alt="" />
     </li>
   </ul>
 </div>

@@ -22,7 +22,24 @@ export class AllProductService {
         const allProduct: DetailsProduct[] = [];
 
         data.forEach((elem: IAllData) => {
-          allProduct.push(elem);
+          
+          const images: string[] =[];
+          elem.image.filter(elem => elem !== null).forEach(res => {
+            images.push(res);
+          });
+          
+          const item: DetailsProduct = new DetailsProduct({
+            color: elem.color,
+            image: images,
+            price: elem.price,
+            rating: elem.rating,
+            sale: elem.sale,
+            size: elem.size,
+            title: elem.title,
+            type: elem.type
+          });
+          
+          allProduct.push(item);
         });
         const mixedBrands: DetailsProduct[] = this.mixElements.transform(allProduct);
         const newValue: DetailsProduct[] = mixedBrands;

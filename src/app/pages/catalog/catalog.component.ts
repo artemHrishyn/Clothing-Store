@@ -28,7 +28,6 @@ export class CatalogComponent implements OnInit, OnDestroy {
 
   constructor(
     private allProduct: AllProductService,
-    private dataCollections: DataCollectionsService,
     private catalogProduct: CatalogProductService
   ) {}
 
@@ -56,7 +55,7 @@ export class CatalogComponent implements OnInit, OnDestroy {
   }
 
   public handleProductClicked(product: DetailsProduct): void {
-    this.dataCollections.getData().subscribe((data: IAllData[]) => {
+    this.allProduct.getAllProduct().subscribe((data: DetailsProduct[]) => {
       const foundItem = data.find(item =>
         item.title === product.title &&
         item.rating === product.rating &&
@@ -66,22 +65,10 @@ export class CatalogComponent implements OnInit, OnDestroy {
 
       if (foundItem) {
         this.isShowProduct = true;
-
-        const value = new DetailsProduct({
-          color:  foundItem.color,
-          image:  foundItem.image,
-          price:  foundItem.price,
-          rating: foundItem.rating,
-          sale:   foundItem.sale,
-          size:   foundItem.size,
-          title:  foundItem.title,
-          type:   foundItem.type
-        });
-
-        this.valueProduct = value;
-        this.titleProduct = value.title;
+        this.valueProduct = foundItem;
         this.category = "";
-        this.category = value.type + " > " + this.titleProduct;
+        this.titleProduct = foundItem.title;
+        this.category = foundItem.type + " > " + this.titleProduct;
       }
     });
   }
