@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IAllData } from '../../../interfaces/all-data.interface';
 
 @Component({
@@ -6,11 +6,18 @@ import { IAllData } from '../../../interfaces/all-data.interface';
   templateUrl: './item-product-admin.component.html',
   styleUrl: './item-product-admin.component.scss'
 })
-export class ItemProductAdminComponent {
+export class ItemProductAdminComponent implements OnInit {
   @Input() item: IAllData = {} as IAllData;
   public isSale: boolean = false;
+  public images: string[] = [];
 
-  constructor(){
+  constructor(){}
+
+  ngOnInit(): void {
+    // Позблавлення не вірних посилань
+    this.item.image.filter(elem => elem !== null).forEach(res => {
+      this.images.push(res);
+    });
     this.isSale = this.item.sale === 0 ? this.isSale : !this.isSale;
   }
 }

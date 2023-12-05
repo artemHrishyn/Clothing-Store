@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import { IProductDetails } from '../../../interfaces/product-details.interface';
 import { BuyProductService } from '../../../services/product/buy-product.service';
 import { CounterPipe } from '../../../pipe/counter/counter.pipe';
-import { IProductBuy } from '../../../interfaces/product-buy.interface';
 import { ProductBuy } from '../../../models/product-buy.class';
 
 @Component({
@@ -28,6 +27,7 @@ export class ProductInfoComponent {
   };
   public isSale: boolean = true;
   public counter: number = 1;
+  public isBuy: boolean = true;
 
   constructor(
     private buyProductService: BuyProductService,
@@ -48,17 +48,14 @@ export class ProductInfoComponent {
   public showMainImage(img: string) {
     this.imageProduct = img;
   }
-
-  // Створює масив рядків довжиною n, де кожен елемент масиву є порожнім рядком. Потым пыдставляє ★
-  public generateArray = (n: number): string[] => Array(n);
-
+  
   public productCounter(value: string) {
     this.counter = this.counterPipe.transform(value, this.counter);
   }
 
-  public buyProduct(): IProductBuy {
+  public buyProduct() {
 
-     const item: ProductBuy = new ProductBuy({
+    const item: ProductBuy = new ProductBuy({
       image: this.imageProduct,
       title: this.itemProduct.title,
       price: this.itemProduct.price,
@@ -66,8 +63,7 @@ export class ProductInfoComponent {
       counter: this.counter
     });
 
+    this.isBuy = !this.isBuy;
     this.buyProductService.buyProduct(item);
-
-    return item;
   }
 }

@@ -48,8 +48,8 @@ export class MainComponent  implements OnInit, OnDestroy {
       this.imgBrands = brandImage;
       this.totalBrands = allProductData.length;
       this.totalProduct = allProductData.length;
-      this.productTop = allProductData;
-      this.productAll = topProductData;
+      this.productAll = allProductData;
+      this.productTop = topProductData;
       this.reviews = reviews;
     });
   }

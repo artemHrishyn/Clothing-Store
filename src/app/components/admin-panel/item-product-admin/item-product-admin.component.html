@@ -1,5 +1,5 @@
 <!-- <button>Edit</button> -->
-<h1>{{ item.title }}</h1>
+<h1>{{ item.title | uppercase}}</h1>
 <img [src]="item.brandImg" alt="" class="brand" />
 <div class="color">
   <h5>Колір:</h5>
@@ -10,8 +10,8 @@
 <div class="image">
   <h5>Image:</h5>
   <ul>
-    <li *ngFor="let image of item.image">
-      <img [src]="image" alt="" />
+    <li *ngFor="let item of images">
+      <img [src]="item" alt="" />
     </li>
   </ul>
 </div>
@@ -30,7 +30,7 @@
     </li>
   </ul>
 </div>
-<p><span>Райтінг товару:</span> {{ item.rating }}</p>
+<csa-rating [ratingValue]="item.rating"></csa-rating>
 <div class="size">
   <h5>Розміри товара:</h5>
   <ul>
@@ -39,4 +39,4 @@
     </li>
   </ul>
 </div>
-<p><span>Тип:</span> {{ item.type | uppercase }}</p>
+<h5><span>Тип:</span> {{ item.type | uppercase }}</h5>

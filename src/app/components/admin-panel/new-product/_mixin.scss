@@ -1,0 +1,13 @@
+@mixin borderMain() {
+  border: 1px solid rgb(0, 0, 0);
+  box-shadow: 13px 9px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 13px 9px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 13px 9px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+@mixin borderItem() {
+  border: 1px solid darkcyan;
+  box-shadow: 5px 4px 7px darkgray, 9px 8px 7px #454545;
+  -webkit-box-shadow: 5px 4px 7px darkgray, 9px 8px 7px #454545;
+  -moz-box-shadow: 5px 4px 7px darkgray, 9px 8px 7px #454545;
+}

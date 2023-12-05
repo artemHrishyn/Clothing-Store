@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { IAllData } from '../../interfaces/all-data.interface';
 import { DetailsProduct } from '../../models/detailsProduct.class';
 import { IProductDetails } from '../../interfaces/product-details.interface';
@@ -12,79 +12,68 @@ import { Subscription } from 'rxjs';
   templateUrl: './catalog.component.html',
   styleUrl: './catalog.component.scss'
 })
-export class CatalogComponent {
-
-  public valueProduct: IProductDetails = {} as IProductDetails;
-
+export class CatalogComponent implements OnInit, OnDestroy {
+  
   private subscribe: Subscription | null = null;
-  // private isShorts: boolean = false;
-  // private isSneakers: boolean = false;
-  // private isTShirts: boolean = false;
-
+  
+  public valueProduct: IProductDetails = {} as IProductDetails;
   public showArrayProducts: DetailsProduct[] = [];
   public reservArrayProducts: DetailsProduct[] = [];
   private mainProducts: DetailsProduct[] = [];
-  public category: string = "";
-
   private titleProduct: string = "";
+  
+  public category: string = "";
+  public isValue: boolean = false;
   public isShowProduct: boolean = false;
 
   constructor(
     private allProduct: AllProductService,
-    private dataCollections: DataCollectionsService,
     private catalogProduct: CatalogProductService
   ) {}
 
   ngOnInit(): void {
-    this.allProduct.getAllProduct().subscribe((data: DetailsProduct[]) => {
+    this.subscribe = this.allProduct.getAllProduct().subscribe((data: DetailsProduct[]) => {
       this.reservArrayProducts = data
       this.showArrayProducts = this.reservArrayProducts.slice(0, 10);
       this.mainProducts = data;
     });
   }
 
-  changePage(value1: number, value2: number) {
-        this.showArrayProducts = this.reservArrayProducts.slice(value1, value2);
+  public changePage(value1: number, value2: number) {
+    this.showArrayProducts = this.reservArrayProducts.slice(value1, value2);
   }
 
   // Вивод товару згідно філтру
   public filterCategory(category: string) {
+    this.isValue = !this.isValue;
     
     this.subscribe = this.catalogProduct.returnCatalogProducts(category).subscribe(data =>{
-      console.log(data);
       this.category = "";
-      let isValue: boolean = false;
-      this.showArrayProducts = isValue ? data : this.mainProducts;
+      this.showArrayProducts = this.isValue ? data : this.mainProducts;
       this.isShowProduct = false;
     })
   }
 
   public handleProductClicked(product: DetailsProduct): void {
-    this.dataCollections.getData().subscribe((data: IAllData[]) => {
+    this.allProduct.getAllProduct().subscribe((data: DetailsProduct[]) => {
       const foundItem = data.find(item =>
         item.title === product.title &&
         item.rating === product.rating &&
         item.price === product.price &&
         item.sale === product.sale
-        );
+      );
+
       if (foundItem) {
         this.isShowProduct = true;
-
-        const value = new DetailsProduct({
-          color:  foundItem.color,
-          image:  foundItem.image,
-          price:  foundItem.price,
-          rating: foundItem.rating,
-          sale:   foundItem.sale,
-          size:   foundItem.size,
-          title:  foundItem.title,
-          type:   foundItem.type
-        });
-        this.valueProduct = value;
-        this.titleProduct = value.title;
+        this.valueProduct = foundItem;
         this.category = "";
-        this.category = value.type + " > " + this.titleProduct;
+        this.titleProduct = foundItem.title;
+        this.category = foundItem.type + " > " + this.titleProduct;
       }
     });
+  }
+  
+  ngOnDestroy(): void {
+    this.subscribe?.unsubscribe();
   }
 }

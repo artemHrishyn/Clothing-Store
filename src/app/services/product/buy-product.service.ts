@@ -9,11 +9,12 @@ export class BuyProductService {
   private boughtProductsNew: IProductBuyNew[] = [];
 
   constructor() { }
-  buyProduct(product: IProductBuy ) {
+  
+  public buyProduct(product: IProductBuy ) {
     this.boughtProducts.push(product);
   }
   
-  getBoughtProducts() {
+  public getBoughtProducts() {
     
     this.boughtProductsNew = this.boughtProductsNew.filter((product, index, self) =>
       index === self.findIndex((p) =>
@@ -22,7 +23,6 @@ export class BuyProductService {
         p.price === product.price
       )
     );
-
     return this.boughtProducts;
   }
 }

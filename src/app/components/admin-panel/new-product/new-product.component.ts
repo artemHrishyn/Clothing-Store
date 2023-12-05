@@ -1,12 +1,12 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output} from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { DataService } from '../../../services/firebase/data.service';
-enum Type{
-  Shorts = 'shorts',
-  Sneakers = 'sneakers',
-  Tshirt = 'tshirt'
-}
-
+import { Types } from '../../../interfaces/type.enum';
+// enum Type{
+//   Shorts = 'shorts',
+//   Sneakers = 'sneakers',
+//   Tshirt = 'tshirt'
+// }
 @Component({
   selector: 'csa-new-product',
   templateUrl: './new-product.component.html',
@@ -14,14 +14,14 @@ enum Type{
 })
 export class NewProductComponent {
   
+  @Input() show: boolean = true;
+  @Output() close: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   public productData: FormGroup;
-  public types: string[] = Object.values(Type);
+  public types: string[] = Object.values(Types);
   public color: FormArray;
   public image: FormArray;
   public col: FormControl;
-
-  @Input() show: boolean = true;
-  @Output() close: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(
     private dataService: DataService,
@@ -58,7 +58,7 @@ export class NewProductComponent {
       male: new FormControl("", Validators.required),
       rating: new FormControl("", Validators.required),
       title: new FormControl("", Validators.required),
-      type: new FormControl("shorts", Validators.required),
+      type: new FormControl("Шорти", Validators.required),
     });
   }
 
@@ -75,8 +75,7 @@ export class NewProductComponent {
 
   public addColor() {
     this.color.push(
-      new FormControl("#000"
-      )
+      new FormControl("#000")
     )
   }
 
@@ -86,8 +85,7 @@ export class NewProductComponent {
 
   public addImage() {
     this.image.push(
-      new FormControl("", Validators.required
-      )
+      new FormControl("", Validators.required)
     )
   }
 

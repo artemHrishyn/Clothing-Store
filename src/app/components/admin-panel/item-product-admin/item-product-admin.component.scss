@@ -1,12 +1,14 @@
 :host{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    height: 100%;
   }
   
   h1{
     margin-bottom: 20px;
-    font-size: 35px;
+    font-size: 25px;
     font-weight: 700;
     text-align: center;
   }
@@ -42,26 +44,6 @@
     }
   }
   
-  .image {
-  
-    ul {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-  
-      li {
-        margin: 0 20px 20px 0;
-  
-        img{
-          width: 75px;
-          height: 75px;
-          object-fit: cover;
-        }
-      }
-    }
-  }
-  
   .coins{
     display: flex;
     justify-content: center;
@@ -75,10 +57,30 @@
       font-weight: 500;
     }
   }
+
+  .image {
+  
+    ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+  
+      li {
+        margin: 0 20px 20px 0;
+  
+        img{
+          width: 75px;
+          height: 75px;
+          object-fit: cover;
+        }
+      }
+    }
+  }
   
   .quantity{
     display: flex;
     flex-direction: column;
+    margin-bottom: 10px;
   
     ul{
       list-style: none;
@@ -90,6 +92,7 @@
       }
     }
   }
+
   .size{
     margin-bottom: 20px;
     display: flex;
@@ -104,4 +107,3 @@
       grid-gap: 20px;
     }
   }
-  

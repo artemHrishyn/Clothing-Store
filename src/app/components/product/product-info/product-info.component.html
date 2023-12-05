@@ -14,10 +14,7 @@
     <div class="product-item__info">
       <h1>{{ itemProduct.title }}</h1>
       <div class="rating">
-        <ul>
-          <li *ngFor="let item of generateArray(itemProduct.rating)">★</li>
-        </ul>
-        {{ itemProduct.rating }}/5
+        <csa-rating [ratingValue]="itemProduct.rating"></csa-rating>
       </div>
       <hr />
       <div class="coins">
@@ -59,7 +56,10 @@
           ><span>{{ counter }}</span
           ><span class="quantity__count" (click)="productCounter('plus')">+</span>
         </div>
-        <div class="buy" (click)="buyProduct()">Add to Cart</div>
+        <button class="buy" (click)="buyProduct()" *ngIf="isBuy">
+          Замовити
+        </button>
+        <button class="buy" *ngIf="!isBuy">Додано до корзини</button>
       </div>
     </div>
   </div>
