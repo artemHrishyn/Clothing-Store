@@ -15,15 +15,13 @@
       <div class="content-text">
         <p class="rating">
           Рейтинг:
-          <span>
-            {{ createStar(itemProduct.rating) }}
-          </span>
+          <csa-rating [ratingValue]="itemProduct.rating"></csa-rating>
         </p>
         <p class="item-name">{{ itemProduct.title }}</p>
       </div>
     </div>
     <button class="view-more-btn" (click)="buyProduct()" *ngIf="isBuy">
-      Купити
+      Замовити
     </button>
     <button class="view-more-btn" *ngIf="!isBuy">Додано до корзини</button>
   </div>

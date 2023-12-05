@@ -1,12 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription, forkJoin } from 'rxjs';
-import { AllProductService } from '../../services/all-product.service';
-import { TopProductService } from '../../services/top-product.service';
 import { GetReviewsService } from '../../services/get-reviews.service';
 import { BrandImageService } from '../../services/brand-image.service';
 import { DetailsProduct } from '../../models/detailsProduct.class';
 import { IReviews } from '../../interfaces/reviews.interface';
 import { GoToUrlService } from '../../services/go-to-url.service';
+import { AllProductService } from '../../services/product/all-product.service';
+import { TopProductService } from '../../services/product/top-product.service';
 
 @Component({
   selector: 'csa-main',

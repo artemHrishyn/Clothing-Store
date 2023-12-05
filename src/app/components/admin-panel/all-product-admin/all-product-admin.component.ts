@@ -21,15 +21,15 @@ export class AllProductAdminComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscribe = this.dataCollections.getData().subscribe((data: IAllData[]) => {
-      if (data) {
-        console.log(data);        
+      if (data) {      
         this.itemRezerv = data;
         this.items = this.itemRezerv;
       }
     });
   }
 
-  public show(value: string) {
+  // Пошук item по назви Бренду
+  public searchBrandTitle(value: string) {
     this.items = [];
     if (value) {
       this.items = this.itemRezerv.filter(elem => elem.brandTitle.startsWith(value));

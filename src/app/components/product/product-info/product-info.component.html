@@ -1,1 +1,66 @@
-<p>product-info works!</p>
+<div class="product-item">
+    <div class="product-item__galery">
+      <ul>
+        <li *ngFor="let item of this.itemProduct.image">
+          <img src="{{ item }}" alt="image" (click)="showMainImage(item)" />
+        </li>
+      </ul>
+      <img
+        class="product-item__galery__main"
+        src="{{ imageProduct }}"
+        alt="Продукт"
+      />
+    </div>
+    <div class="product-item__info">
+      <h1>{{ itemProduct.title }}</h1>
+      <div class="rating">
+        <csa-rating [ratingValue]="itemProduct.rating"></csa-rating>
+      </div>
+      <hr />
+      <div class="coins">
+        <p class="sale" *ngIf="isSale">{{ itemProduct.sale }}</p>
+        <p class="price">
+          {{ itemProduct.price }}
+        </p>
+        <p class="percentage" *ngIf="isSale">
+          {{ percentageProduct | percent }}
+        </p>
+      </div>
+      <hr />
+      <div class="color">
+        <p>Select Colors</p>
+        <ul>
+          <li
+            *ngFor="let item of this.itemProduct.color"
+            [style.background-color]="item"
+          ></li>
+        </ul>
+      </div>
+      <hr />
+      <div class="size">
+        <p>Choose Size</p>
+        <ul>
+          <li
+            *ngFor="let key of getSizeKeys()"
+            [style.background-color]="sizeProduct[key] ? '#c6f069' : '#d3d3d3'"
+            [style.cursor]="sizeProduct[key] ? 'pointer' : 'no-drop'"
+          >
+            {{ key }}
+          </li>
+        </ul>
+      </div>
+      <hr />
+      <div class="reserves">
+        <div class="quantity">
+          <span class="quantity__count" (click)="productCounter('minus')">-</span
+          ><span>{{ counter }}</span
+          ><span class="quantity__count" (click)="productCounter('plus')">+</span>
+        </div>
+        <button class="buy" (click)="buyProduct()" *ngIf="isBuy">
+          Замовити
+        </button>
+        <button class="buy" *ngIf="!isBuy">Додано до корзини</button>
+      </div>
+    </div>
+  </div>
+  
