@@ -48,10 +48,7 @@ export class ProductInfoComponent {
   public showMainImage(img: string) {
     this.imageProduct = img;
   }
-
-  // Створює масив рядків довжиною n, де кожен елемент масиву є порожнім рядком. Потым пыдставляє ★
-  public generateArray = (n: number): string[] => Array(n);
-
+  
   public productCounter(value: string) {
     this.counter = this.counterPipe.transform(value, this.counter);
   }

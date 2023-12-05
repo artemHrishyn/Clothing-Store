@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductInfoComponent } from './product-info.component';
+import { RatingModule } from '../../rating/rating.module';
 
 
 
@@ -9,7 +10,8 @@ import { ProductInfoComponent } from './product-info.component';
     ProductInfoComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RatingModule
   ],
   exports: [
     ProductInfoComponent

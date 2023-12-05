@@ -94,13 +94,6 @@
 
 .rating {
   font-size: 16px;
-
-  span {
-    color: red;
-    animation: changeColor 3s linear infinite;
-    @include animationColor(changeColor, color);
-    animation-timing-function: ease-in-out;
-  }
 }
 
 .view-more-btn {

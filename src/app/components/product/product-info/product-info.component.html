@@ -14,10 +14,7 @@
     <div class="product-item__info">
       <h1>{{ itemProduct.title }}</h1>
       <div class="rating">
-        <ul>
-          <li *ngFor="let item of generateArray(itemProduct.rating)">★</li>
-        </ul>
-        {{ itemProduct.rating }}/5
+        <csa-rating [ratingValue]="itemProduct.rating"></csa-rating>
       </div>
       <hr />
       <div class="coins">
