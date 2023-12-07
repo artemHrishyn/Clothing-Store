@@ -22,7 +22,7 @@ export class CatalogComponent implements OnInit, OnDestroy {
   private mainProducts: DetailsProduct[] = [];
   private titleProduct: string = '';
   
-  public category: string = '';
+  public category: string = 'All';
   public categoryNow: string = '';
   public isShowProduct: boolean = false;
 
@@ -58,6 +58,7 @@ export class CatalogComponent implements OnInit, OnDestroy {
     else{
       this.showArrayProducts = this.mainProducts;
         this.categoryNow = '';
+        this.category = 'All';
     }
   }
 
@@ -73,7 +74,6 @@ export class CatalogComponent implements OnInit, OnDestroy {
       if (foundItem) {
         this.isShowProduct = true;
         this.valueProduct = foundItem;
-        this.category = "";
         this.titleProduct = foundItem.title;
         this.category = foundItem.type + " > " + this.titleProduct;
       }
