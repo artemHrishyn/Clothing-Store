@@ -20,10 +20,10 @@ export class CatalogComponent implements OnInit, OnDestroy {
   public showArrayProducts: DetailsProduct[] = [];
   public reservArrayProducts: DetailsProduct[] = [];
   private mainProducts: DetailsProduct[] = [];
-  private titleProduct: string = "";
+  private titleProduct: string = '';
   
-  public category: string = "";
-  public isValue: boolean = false;
+  public category: string = '';
+  public categoryNow: string = '';
   public isShowProduct: boolean = false;
 
   constructor(
@@ -45,13 +45,20 @@ export class CatalogComponent implements OnInit, OnDestroy {
 
   // Вивод товару згідно філтру
   public filterCategory(category: string) {
-    this.isValue = !this.isValue;
     
-    this.subscribe = this.catalogProduct.returnCatalogProducts(category).subscribe(data =>{
-      this.category = "";
-      this.showArrayProducts = this.isValue ? data : this.mainProducts;
-      this.isShowProduct = false;
-    })
+    if(this.categoryNow !== category)
+    {
+      this.subscribe = this.catalogProduct.returnCatalogProducts(category).subscribe(data =>{
+        this.category = category;
+        this.showArrayProducts =  data;
+        this.isShowProduct = false;
+        this.categoryNow = category;
+      })
+    }
+    else{
+      this.showArrayProducts = this.mainProducts;
+        this.categoryNow = '';
+    }
   }
 
   public handleProductClicked(product: DetailsProduct): void {
