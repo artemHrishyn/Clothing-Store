@@ -1,9 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { IAllData } from '../../interfaces/all-data.interface';
+import { Router } from '@angular/router';
 import { DetailsProduct } from '../../models/detailsProduct.class';
 import { IProductDetails } from '../../interfaces/product-details.interface';
 import { AllProductService } from '../../services/product/all-product.service';
-import { DataCollectionsService } from '../../services/firebase/data-collections.service';
 import { CatalogProductService } from '../../services/product/catalog-product.service';
 import { Subscription } from 'rxjs';
 
@@ -28,15 +27,21 @@ export class CatalogComponent implements OnInit, OnDestroy {
 
   constructor(
     private allProduct: AllProductService,
-    private catalogProduct: CatalogProductService
+    private catalogProduct: CatalogProductService,
+    private router: Router
   ) {}
-
+  
   ngOnInit(): void {
     this.subscribe = this.allProduct.getAllProduct().subscribe((data: DetailsProduct[]) => {
       this.reservArrayProducts = data
       this.showArrayProducts = this.reservArrayProducts.slice(0, 10);
       this.mainProducts = data;
     });
+  }
+
+  
+  showDetailsTheme(lesson: DetailsProduct) {
+    this.router.navigate(['catalog', lesson.title])
   }
 
   public changePage(value1: number, value2: number) {
