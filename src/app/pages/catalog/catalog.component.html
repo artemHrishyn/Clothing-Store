@@ -2,19 +2,19 @@
     <div class="filter">
       <h1>{{ category }}</h1>
       <ul class="filter__sort">
-        <li (click)="filterCategory('shorts')">
+        <li (click)="filterCategory('Шорти')">
           <img
             src="https://img.icons8.com/external-goofy-color-kerismaker/96/external-Short-summer-goofy-color-kerismaker.png"
             alt="external-Short-summer-goofy-color-kerismaker"
           />Шорти
         </li>
-        <li (click)="filterCategory('tshirt')">
+        <li (click)="filterCategory('Футболка')">
           <img
             src="https://img.icons8.com/cotton/64/t-shirt--v1.png"
             alt="t-shirt--v1"
           />Футболки
         </li>
-        <li (click)="filterCategory('sneakers')">
+        <li (click)="filterCategory('Кросівки')">
           <img
             src="https://img.icons8.com/external-smashingstocks-flat-smashing-stocks/66/external-Sneakers-shoes-and-footwear-smashingstocks-flat-smashing-stocks-21.png"
             alt="external-Sneakers-shoes-and-footwear-smashingstocks-flat-smashing-stocks-21"
@@ -22,7 +22,6 @@
         </li>
       </ul>
     </div>
-  
     <!-- Список усієї продукції -->
   
     <div class="list-product" *ngIf="!isShowProduct">
@@ -46,10 +45,11 @@
   
       <div class="catalog">
         <ul class="catalog__list">
-          <li *ngFor="let item of showArrayProducts">
+          <li *ngFor="let item of showArrayProducts; let i = index">
             <csa-product-cart
               [itemProduct]="item"
               (productClicked)="handleProductClicked($event)"
+              (click)="showDetailsTheme(item)"
             ></csa-product-cart>
           </li>
         </ul>
@@ -74,10 +74,10 @@
       </nav>
     </div>
   
-    <!-- Детальна інформація конкретного товара -->
+    <!-- Детальна інформація конкретного товара
     <csa-product-info
       *ngIf="isShowProduct"
       [itemProduct]="valueProduct"
-    ></csa-product-info>
+    ></csa-product-info> -->
   </section>
   

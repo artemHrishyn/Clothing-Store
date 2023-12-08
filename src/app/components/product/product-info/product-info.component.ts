@@ -1,17 +1,20 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IProductDetails } from '../../../interfaces/product-details.interface';
 import { BuyProductService } from '../../../services/product/buy-product.service';
 import { CounterPipe } from '../../../pipe/counter/counter.pipe';
 import { ProductBuy } from '../../../models/product-buy.class';
+import { ActivatedRoute} from '@angular/router';
+import { Subscription } from 'rxjs';
+import { AllProductService } from '../../../services/product/all-product.service';
 
 @Component({
   selector: 'csa-product-info',
   templateUrl: './product-info.component.html',
   styleUrl: './product-info.component.scss'
 })
-export class ProductInfoComponent {
+export class ProductInfoComponent implements OnInit{
   
-  @Input() itemProduct: IProductDetails = {} as IProductDetails;
+  private subscribe: Subscription | null = null;
 
   public imageProduct: string = "";
   public percentageProduct: number = 0;
@@ -28,17 +31,38 @@ export class ProductInfoComponent {
   public isSale: boolean = true;
   public counter: number = 1;
   public isBuy: boolean = true;
+  public itemProduct: IProductDetails = {} as IProductDetails;
 
   constructor(
     private buyProductService: BuyProductService,
     private counterPipe: CounterPipe,
+    private allProduct: AllProductService,
+    private activatedRoute: ActivatedRoute,
   ) {}
   ngOnInit(): void {
+    let idLesson: string = '';
+  this.activatedRoute.params.forEach(param => idLesson = param['id-lesson']);
+  console.log(idLesson);
+  
+  this.subscribe = this.allProduct.getAllProduct().subscribe((data: IProductDetails[]) => {
+    data.forEach((elem: IProductDetails) => {
+      this.activatedRoute.params.forEach(param => idLesson = param['id-lesson']);
+      this.getLessonTheme(elem, idLesson);
+    });
+  });
+    
+  }
+
+  getLessonTheme(LESSONS: IProductDetails, id: string): void {
+    if (LESSONS.title === id) {
+      this.itemProduct = LESSONS;
+      console.log(this.itemProduct);
     this.imageProduct = this.itemProduct.image[0];
 
     this.isSale = (this.itemProduct.sale !== 0) ? this.isSale : !this.isSale;
     this.percentageProduct = this.itemProduct.sale / this.itemProduct.price;
     this.sizeProduct = this.itemProduct.size;
+    }
   }
 
   public getSizeKeys(): string[] {
