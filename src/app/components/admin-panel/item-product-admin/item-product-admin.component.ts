@@ -11,14 +11,13 @@ export class ItemProductAdminComponent implements OnInit {
   public isSale: boolean = false;
   public images: string[] = [];
 
-  constructor(){
-    this.isSale = this.item.sale === 0 ? this.isSale : !this.isSale;
-  }
+  constructor(){}
 
   ngOnInit(): void {
     // Позблавлення не вірних посилань
     this.item.image.filter(elem => elem !== null).forEach(res => {
       this.images.push(res);
     });
+    this.isSale = this.item.sale === 0 ? this.isSale : !this.isSale;
   }
 }

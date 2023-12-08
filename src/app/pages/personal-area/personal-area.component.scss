@@ -10,6 +10,11 @@
 
 aside {
   padding: 20px;
+
+  span{
+    font-weight: 500;
+    font-style: italic;
+  }
 }
 
 .info__sign-out {
@@ -22,10 +27,7 @@ article {
   flex-direction: column;
   align-items: center;
 
-  &>button {
-    font-size: 20px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin: 5px;
-    padding: 5px 10px;
+  button{
+    margin-bottom: 20px;
   }
 }

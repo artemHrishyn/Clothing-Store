@@ -1,11 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output} from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { DataService } from '../../../services/firebase/data.service';
-enum Type{
-  Shorts = 'shorts',
-  Sneakers = 'sneakers',
-  Tshirt = 'tshirt'
-}
+import { Types } from '../../../interfaces/type.enum';
 
 @Component({
   selector: 'csa-new-product',
@@ -14,20 +10,21 @@ enum Type{
 })
 export class NewProductComponent {
   
+  @Input() show: boolean = true;
+  @Output() close: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   public productData: FormGroup;
-  public types: string[] = Object.values(Type);
+  public types: string[] = Object.values(Types);
   public color: FormArray;
   public image: FormArray;
   public col: FormControl;
-
-  @Input() show: boolean = true;
-  @Output() close: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(
     private dataService: DataService,
     private fb: FormBuilder
   ) {
-
+    this.types = this.types.filter(res => res !=="All");
+    
     this.color = new FormArray(
       [new FormControl("#000")]
     );
@@ -58,16 +55,22 @@ export class NewProductComponent {
       male: new FormControl("", Validators.required),
       rating: new FormControl("", Validators.required),
       title: new FormControl("", Validators.required),
-      type: new FormControl("shorts", Validators.required),
+      type: new FormControl("Шорти", Validators.required),
     });
   }
 
+  private getKeyByValue(object: { [key: string]: string }, value: string): string {
+    return Object.keys(object).find(key => object[key] === value)!;
+  }
+
   onSubmit(form: FormGroup) {
+    const key = this.getKeyByValue(Types, form.value.type);
+    
     if (form.valid) {
       console.log(form.value);
 
       let formData = { ...form.value }
-      this.dataService.sendData(form.value.type, formData);
+      this.dataService.sendData(key, formData);
       form.reset();
       this.close.emit(!this.show);
     }
@@ -75,8 +78,7 @@ export class NewProductComponent {
 
   public addColor() {
     this.color.push(
-      new FormControl("#000"
-      )
+      new FormControl("#000")
     )
   }
 
@@ -86,8 +88,7 @@ export class NewProductComponent {
 
   public addImage() {
     this.image.push(
-      new FormControl("", Validators.required
-      )
+      new FormControl("", Validators.required)
     )
   }
 

@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductInfoComponent } from './product-info.component';
+import { SelectTypeComponent } from './select-type.component';
 
 @NgModule({
   declarations: [
-    ProductInfoComponent
+    SelectTypeComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    ProductInfoComponent
+    SelectTypeComponent
   ]
 })
-export class ProductInfoModule { }
+export class SelectTypeModule { }

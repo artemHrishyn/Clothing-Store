@@ -8,10 +8,10 @@
         type="text"
         placeholder="Login"
         formControlName="login"
-        name="login"
+        name="login" required
       />
       <p
-        *ngIf="loginData.get('login')?.invalid && loginData.get('login')?.dirty"
+        *ngIf="loginData.get('login')?.invalid && loginData.get('login')?.touched"
       >
         Поле обов'язкове для введення
       </p>
@@ -25,11 +25,11 @@
         type="password"
         placeholder="Password"
         formControlName="password"
-        name="password"
+        name="password" required
       />
       <p
         *ngIf="
-          loginData.get('password')?.invalid && loginData.get('password')?.dirty
+          loginData.get('password')?.invalid && loginData.get('password')?.touched
         "
       >
         Поле обов'язкове для введення
