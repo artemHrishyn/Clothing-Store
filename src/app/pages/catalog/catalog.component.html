@@ -48,6 +48,7 @@
           <li *ngFor="let item of showArrayProducts; let i = index">
             <csa-product-cart
               [itemProduct]="item"
+              [buyTitle]="buyTitle"
               (productClicked)="handleProductClicked($event)"
               (click)="showDetailsTheme(item)"
             ></csa-product-cart>

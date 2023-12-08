@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { IProductDetails } from '../../../interfaces/product-details.interface';
 import { BuyProductService } from '../../../services/product/buy-product.service';
 import { CounterPipe } from '../../../pipe/counter/counter.pipe';
@@ -12,7 +12,7 @@ import { AllProductService } from '../../../services/product/all-product.service
   templateUrl: './product-info.component.html',
   styleUrl: './product-info.component.scss'
 })
-export class ProductInfoComponent implements OnInit{
+export class ProductInfoComponent implements OnInit, OnDestroy{
   
   private subscribe: Subscription | null = null;
 
@@ -32,40 +32,54 @@ export class ProductInfoComponent implements OnInit{
   public counter: number = 1;
   public isBuy: boolean = true;
   public itemProduct: IProductDetails = {} as IProductDetails;
+  public ratings: boolean[] = [];
+  public isCounter = false;
 
   constructor(
     private buyProductService: BuyProductService,
     private counterPipe: CounterPipe,
     private allProduct: AllProductService,
-    private activatedRoute: ActivatedRoute,
+    private activatedRoute: ActivatedRoute
   ) {}
-  ngOnInit(): void {
-    let idLesson: string = '';
-  this.activatedRoute.params.forEach(param => idLesson = param['id-lesson']);
-  console.log(idLesson);
-  
-  this.subscribe = this.allProduct.getAllProduct().subscribe((data: IProductDetails[]) => {
-    data.forEach((elem: IProductDetails) => {
-      this.activatedRoute.params.forEach(param => idLesson = param['id-lesson']);
-      this.getLessonTheme(elem, idLesson);
-    });
-  });
-    
-  }
 
-  getLessonTheme(LESSONS: IProductDetails, id: string): void {
-    if (LESSONS.title === id) {
-      this.itemProduct = LESSONS;
-      console.log(this.itemProduct);
-    this.imageProduct = this.itemProduct.image[0];
+  private getLessonTheme(data: IProductDetails, id: string): void {
+    if (data.title === id) {
+      this.itemProduct = data;
 
-    this.isSale = (this.itemProduct.sale !== 0) ? this.isSale : !this.isSale;
-    this.percentageProduct = this.itemProduct.sale / this.itemProduct.price;
-    this.sizeProduct = this.itemProduct.size;
+      this.imageProduct = this.itemProduct.image[0];
+      this.isSale = (this.itemProduct.sale !== 0) ? this.isSale : !this.isSale;
+      this.percentageProduct = this.itemProduct.sale / this.itemProduct.price;
+      this.sizeProduct = this.itemProduct.size;
+      for (let index = 1; index < 6; index++) {
+        this.ratings.push((index <= data.rating)? true: false); 
+      }
     }
   }
 
+  ngOnInit(): void {
+    let type: string = '';
+    this.activatedRoute.params.forEach(param => type = param['type-product']);
+    
+    this.subscribe = this.allProduct.getAllProduct().subscribe((data: IProductDetails[]) => {
+      
+      data.forEach((elem: IProductDetails) => {
+        this.activatedRoute.params.forEach(param => type = param['type-product']);
+        this.getLessonTheme(elem, type);
+      });
+    });   
+  }
+
+
   public getSizeKeys(): string[] {
+    const keys = Object.keys(this.sizeProduct);
+    const value: boolean[] = [];
+    keys.forEach(key =>{
+      if (this.sizeProduct[key]) {
+        value.push(this.sizeProduct[key]);
+      }
+    });
+    this.isCounter = value.length > 0? true: false;
+    
     return Object.keys(this.sizeProduct);
   }
 
@@ -89,5 +103,9 @@ export class ProductInfoComponent implements OnInit{
 
     this.isBuy = !this.isBuy;
     this.buyProductService.buyProduct(item);
+  }
+  
+  ngOnDestroy(): void {
+    this.subscribe?.unsubscribe();
   }
 }

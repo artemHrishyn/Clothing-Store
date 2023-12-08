@@ -15,6 +15,8 @@ export class ProductCartComponent implements OnInit {
   @Input() itemProduct: DetailsProduct = {} as DetailsProduct;
   @Output() productClicked: EventEmitter<DetailsProduct> = new EventEmitter<DetailsProduct>();
 
+  @Input() buyTitle: string = 'Замовити';
+  
   public counter: number = 1;
   public image: string = "";
   public price: number = 0;

@@ -2,11 +2,7 @@ import { Component, EventEmitter, Input, Output} from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { DataService } from '../../../services/firebase/data.service';
 import { Types } from '../../../interfaces/type.enum';
-// enum Type{
-//   Shorts = 'shorts',
-//   Sneakers = 'sneakers',
-//   Tshirt = 'tshirt'
-// }
+
 @Component({
   selector: 'csa-new-product',
   templateUrl: './new-product.component.html',
@@ -27,7 +23,8 @@ export class NewProductComponent {
     private dataService: DataService,
     private fb: FormBuilder
   ) {
-
+    this.types = this.types.filter(res => res !=="All");
+    
     this.color = new FormArray(
       [new FormControl("#000")]
     );
@@ -62,12 +59,18 @@ export class NewProductComponent {
     });
   }
 
+  private getKeyByValue(object: { [key: string]: string }, value: string): string {
+    return Object.keys(object).find(key => object[key] === value)!;
+  }
+
   onSubmit(form: FormGroup) {
+    const key = this.getKeyByValue(Types, form.value.type);
+    
     if (form.valid) {
       console.log(form.value);
 
       let formData = { ...form.value }
-      this.dataService.sendData(form.value.type, formData);
+      this.dataService.sendData(key, formData);
       form.reset();
       this.close.emit(!this.show);
     }

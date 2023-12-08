@@ -16,6 +16,7 @@ export class PersonalAreaComponent implements OnInit, OnDestroy {
   public itemRezerv: IAllData[] = [];
   public add: string = 'Add';
   public isAdd: boolean = false;
+  public gmail: string = 'genser.artem@gmail.com';
 
   constructor(
     private dataCollections: DataCollectionsService,
@@ -26,7 +27,6 @@ export class PersonalAreaComponent implements OnInit, OnDestroy {
       if (data) {
         this.itemRezerv = data;
         this.items = this.itemRezerv;
-        console.log(data);
       }
     });
   }

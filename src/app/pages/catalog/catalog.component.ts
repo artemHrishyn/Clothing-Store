@@ -24,6 +24,7 @@ export class CatalogComponent implements OnInit, OnDestroy {
   public category: string = 'All';
   public categoryNow: string = '';
   public isShowProduct: boolean = false;
+  public buyTitle: string = 'Детально';
 
   constructor(
     private allProduct: AllProductService,

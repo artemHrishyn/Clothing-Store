@@ -30,7 +30,7 @@ export class DataService {
     public sendData(value: string, dataValue: IAllData) {
   
       this.data.push(dataValue);
-      return this.http.post(`${this.api.source['clothes']}${value}.json`, dataValue).subscribe(elem => {
+      return this.http.post(`${this.api.source['clothes']}/${value}.json`, dataValue).subscribe(elem => {
         console.log(elem);
       });
     }
