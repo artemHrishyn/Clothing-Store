@@ -6,6 +6,9 @@ $colorWhite: #fff;
 .shopping {
   padding: 32px 48px;
   background-color: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   h1 {
     text-transform: uppercase;

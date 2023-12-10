@@ -14,8 +14,6 @@ export class AllProductAdminComponent implements OnInit, AfterContentChecked, On
   private subscribe: Subscription | null = null;
   public items: IAllData[] = [];
   public itemRezerv: IAllData[] = [];
-  public isSearchType: boolean = false;
-
   constructor(
     private dataCollections: DataCollectionsService,
     private returnType: ReturnTypeService
@@ -35,10 +33,8 @@ export class AllProductAdminComponent implements OnInit, AfterContentChecked, On
    
     if (value) {
       this.items = this.itemRezerv.filter(elem => elem.brandTitle.startsWith(value));
-      this.isSearchType = true;
     } else {
       this.items = this.itemRezerv;
-      this.isSearchType = false;
     }
   }
 
@@ -50,10 +46,8 @@ export class AllProductAdminComponent implements OnInit, AfterContentChecked, On
     if(this.returnType.value){
       if (this.returnType.value != 'All') {
         this.items = this.itemRezerv.filter(elem => (elem.type == this.returnType.value));
-        this.isSearchType = false;
       } else {
         this.items = this.itemRezerv;
-        this.isSearchType = true;
         
       }
     }

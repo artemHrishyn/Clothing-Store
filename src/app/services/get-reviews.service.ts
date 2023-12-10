@@ -12,6 +12,7 @@ export class GetReviewsService {
     private dataService: DataService
   ) { }
   
+  // Отримає з серверу дані відгуків та перетворює інтерфейс IReviews
   public getReviews(): Observable<IReviews[]> {
     return this.dataService.getData('reviews').pipe(
        map((data: Object) => {

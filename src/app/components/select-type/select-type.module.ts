@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SelectTypeComponent } from './select-type.component';
+import { ReturnTypeService } from '../../services/product/return-type.service';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,9 @@ import { SelectTypeComponent } from './select-type.component';
   ],
   exports: [
     SelectTypeComponent
+  ],
+  providers: [
+    ReturnTypeService
   ]
 })
 export class SelectTypeModule { }

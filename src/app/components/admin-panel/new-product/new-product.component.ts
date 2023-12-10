@@ -17,7 +17,6 @@ export class NewProductComponent {
   public types: string[] = Object.values(Types);
   public color: FormArray;
   public image: FormArray;
-  public col: FormControl;
 
   constructor(
     private dataService: DataService,
@@ -32,7 +31,6 @@ export class NewProductComponent {
     this.image = new FormArray(
       [new FormControl("", Validators.required)]
     );
-    this.col = new FormControl("", Validators.required);
 
     this.productData = new FormGroup({
       brandImg: new FormControl("", Validators.required),
