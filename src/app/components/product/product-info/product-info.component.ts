@@ -16,10 +16,8 @@ export class ProductInfoComponent implements OnInit, OnDestroy{
   
   private subscribe: Subscription | null = null;
 
+  public itemProduct: IProductDetails = {} as IProductDetails;
   public imageProduct: string = "";
-  public percentageProduct: number = 0;
-  public price: number = 0;
-
   public sizeProduct: { [key: string]: boolean } = {
     '44': false,
     '46': false,
@@ -28,12 +26,12 @@ export class ProductInfoComponent implements OnInit, OnDestroy{
     '54': false,
     '56-58': false,
   };
-  public isSale: boolean = true;
+  public percentageProduct: number = 0;
   public counter: number = 1;
+  public isSale: boolean = true;
   public isBuy: boolean = true;
-  public itemProduct: IProductDetails = {} as IProductDetails;
   public ratings: boolean[] = [];
-  public isCounter = false;
+  public isCounter: boolean = false;
 
   constructor(
     private buyProductService: BuyProductService,

@@ -8,11 +8,10 @@ import { DelateItemModule } from './delate-item/delate-item.module';
   declarations: [],
   imports: [
     CommonModule,
-    MixElementsModule,
     CounterModule,
-    UniqueValueModule,
     DelateItemModule,
-    CounterModule
+    MixElementsModule,
+    UniqueValueModule
   ]
 })
 export class PipesModule { }

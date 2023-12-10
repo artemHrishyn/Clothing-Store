@@ -24,7 +24,7 @@
     </div>
     <!-- Список усієї продукції -->
   
-    <div class="list-product" *ngIf="!isShowProduct">
+    <div class="list-product" >
       <nav>
         <ul class="pagination pagination-lg">
           <li class="page-item">
@@ -49,7 +49,6 @@
             <csa-product-cart
               [itemProduct]="item"
               [buyTitle]="buyTitle"
-              (productClicked)="handleProductClicked($event)"
               (click)="showDetailsTheme(item)"
             ></csa-product-cart>
           </li>
@@ -74,11 +73,5 @@
         </ul>
       </nav>
     </div>
-  
-    <!-- Детальна інформація конкретного товара
-    <csa-product-info
-      *ngIf="isShowProduct"
-      [itemProduct]="valueProduct"
-    ></csa-product-info> -->
   </section>
   

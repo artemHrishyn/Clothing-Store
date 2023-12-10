@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { GoToUrlService } from '../../services/go-to-url.service';
 import { ProductBuyNew } from '../../models/product-buy.class';
 import { BuyProductService } from '../../services/product/buy-product.service';
-import { IProductBuy, IProductBuyNew } from '../../interfaces/product-buy.interface';
+import { IProductBuyNew } from '../../interfaces/product-buy.interface';
 import { DeleteItemPipe } from '../../pipe/delate-item/delete-item.pipe';
 
 interface MyObject {
@@ -20,7 +20,7 @@ interface MyObject {
 })
 export class ShoppingComponent {
   
-  public boughtProductsNew: IProductBuyNew[] = [];
+  public boughtProducts: IProductBuyNew[] = [];
   public isEmpty = true;
   public sum: number = 0;
   public totalSum: number = 0;
@@ -40,10 +40,10 @@ export class ShoppingComponent {
         price: price,
         counter: elem.counter,
       });
-      this.boughtProductsNew.push(item);
+      this.boughtProducts.push(item);
     });
 
-    this.isEmpty = (this.boughtProductsNew.length != 0) ? false : true;
+    this.isEmpty = (this.boughtProducts.length != 0) ? false : true;
   }
 
   public backMainPage(value: string) {
@@ -51,9 +51,9 @@ export class ShoppingComponent {
   }
 
   public Delate(value: IProductBuyNew) {
-    this.boughtProductsNew = this.deleteItemPipe.transform<IProductBuyNew>(value, this.boughtProductsNew);
+    this.boughtProducts = this.deleteItemPipe.transform<IProductBuyNew>(value, this.boughtProducts);
 
-    if (this.boughtProductsNew.length === 0) {
+    if (this.boughtProducts.length === 0) {
       this.isEmpty = true;
     }
     this.totalSum -= value.price;
@@ -86,5 +86,9 @@ export class ShoppingComponent {
       sum += elem.value;
     });
     this.totalSum = sum ;
+  }
+
+  public onSubmit(){
+    console.log(this.boughtProducts);
   }
 }

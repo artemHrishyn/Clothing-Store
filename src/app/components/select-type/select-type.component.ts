@@ -16,7 +16,7 @@ export class SelectTypeComponent {
     private returnType: ReturnTypeService
   ){}
   
-  // Вивод товару згідно філтру
+  // Вивод товару згідно філтру по типу товару
   public filterCategory(type: string) {
     this.returnType.value = type;
   }

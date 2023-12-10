@@ -14,6 +14,7 @@ export class BrandImageService {
     private mixElements: MixElementsPipe,
   ) { }
 
+  // Повертає масив зображень логотипи товарів
   public returnBrandsArray(): Observable< string[] > {
     return this.DataCollections.getData().pipe(
       map((data: IAllData[]) => {
@@ -28,7 +29,7 @@ export class BrandImageService {
       })
     );
   }
-
+  
   private imageBrandNew(value: string[]): string[]{
     const newArray: string[] = [];
     if (window.innerWidth > 1500) {

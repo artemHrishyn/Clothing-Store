@@ -3,15 +3,15 @@ import { Observable, map } from 'rxjs';
 import { DetailsProduct } from '../../models/detailsProduct.class';
 import { AllProductService } from './all-product.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
+
 export class CatalogProductService {
 
   constructor(
     private allProduct: AllProductService
   ) { }
   
+  // Повертає масив продуктів згідно заданому типу
   public returnCatalogProducts(type: string): Observable<DetailsProduct[]> {
     return this.allProduct.getAllProduct().pipe(
       map((data: DetailsProduct[]) => {

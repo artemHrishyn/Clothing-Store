@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DetailsProduct } from '../../models/detailsProduct.class';
-import { IProductDetails } from '../../interfaces/product-details.interface';
 import { AllProductService } from '../../services/product/all-product.service';
 import { CatalogProductService } from '../../services/product/catalog-product.service';
 import { Subscription } from 'rxjs';
@@ -14,16 +13,13 @@ import { Subscription } from 'rxjs';
 export class CatalogComponent implements OnInit, OnDestroy {
   
   private subscribe: Subscription | null = null;
-  
-  public valueProduct: IProductDetails = {} as IProductDetails;
+
   public showArrayProducts: DetailsProduct[] = [];
   public reservArrayProducts: DetailsProduct[] = [];
   private mainProducts: DetailsProduct[] = [];
-  private titleProduct: string = '';
   
   public category: string = 'All';
   public categoryNow: string = '';
-  public isShowProduct: boolean = false;
   public buyTitle: string = 'Детально';
 
   constructor(
@@ -39,10 +35,10 @@ export class CatalogComponent implements OnInit, OnDestroy {
       this.mainProducts = data;
     });
   }
-
   
-  showDetailsTheme(lesson: DetailsProduct) {
-    this.router.navigate(['catalog', lesson.title])
+  // Детальна інформація продукта
+  public showDetailsTheme(type: DetailsProduct) {
+    this.router.navigate(['catalog', type.title])
   }
 
   public changePage(value1: number, value2: number) {
@@ -57,7 +53,6 @@ export class CatalogComponent implements OnInit, OnDestroy {
       this.subscribe = this.catalogProduct.returnCatalogProducts(category).subscribe(data =>{
         this.category = category;
         this.showArrayProducts =  data;
-        this.isShowProduct = false;
         this.categoryNow = category;
       })
     }
@@ -66,24 +61,6 @@ export class CatalogComponent implements OnInit, OnDestroy {
         this.categoryNow = '';
         this.category = 'All';
     }
-  }
-
-  public handleProductClicked(product: DetailsProduct): void {
-    this.allProduct.getAllProduct().subscribe((data: DetailsProduct[]) => {
-      const foundItem = data.find(item =>
-        item.title === product.title &&
-        item.rating === product.rating &&
-        item.price === product.price &&
-        item.sale === product.sale
-      );
-
-      if (foundItem) {
-        this.isShowProduct = true;
-        this.valueProduct = foundItem;
-        this.titleProduct = foundItem.title;
-        this.category = foundItem.type + " > " + this.titleProduct;
-      }
-    });
   }
   
   ngOnDestroy(): void {

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ConnectionModule } from './services/firebase/connections/connection.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ServicesModule } from './services/services.module';
 import { PagesModule } from './pages/pages.module';
@@ -17,9 +16,8 @@ import { PipesModule } from './pipe/pipes.module';
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    ConnectionModule,
-    MainBlockModule,
     ServicesModule,
+    MainBlockModule,
     PagesModule,
     PipesModule,
   ],

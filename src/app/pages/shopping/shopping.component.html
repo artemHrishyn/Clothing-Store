@@ -11,7 +11,7 @@
     <div class="shopping__info" *ngIf="!isEmpty">
       <div>
         <ul id="scrollbar">
-          <li class="shopping__info__item" *ngFor="let item of boughtProductsNew">
+          <li class="shopping__info__item" *ngFor="let item of boughtProducts">
             <csa-buy-item
               #buyComponent
               [itemProduct]="item"
@@ -25,7 +25,8 @@
         <div class="shopping__info__item">
           <h2>Разом:</h2>
           <p>
-            5 товарів на суму <span>{{ totalSum }} UAH</span>
+            Товарів {{ boughtProducts.length }}шт.<br>
+            Загальна сума <span>{{ totalSum }} UAH</span>
           </p>
           <p>Вартість доставки за тарифами перевізника</p>
   
@@ -35,7 +36,7 @@
             </p>
           </div>
   
-          <button>оформити замовлення</button>
+          <button (click)="onSubmit()">оформити замовлення</button>
         </div>
       </div>
     </div>
