@@ -54,6 +54,30 @@ $fontFamilySatoshi: Satoshi sans-serif;
   font-family: $fontFamilySatoshi;
   font-size: 1rem;
   font-weight: 400;
+
+  &__result{
+    display: flex;
+    width: 265px;
+    list-style: none;
+    
+    li {
+      padding: 0;
+      font-size: 32px;
+      margin: 0 3px;
+      line-height: 1;
+      color: lightgrey;
+      text-shadow: 1px 1px #bbb;
+  
+      &.active{
+        color: gold;
+        text-shadow: 1px 1px #c60;
+      }
+    }
+  
+    &> li:before{
+      content: '★';
+    }
+  }
 }
 
 .coins {

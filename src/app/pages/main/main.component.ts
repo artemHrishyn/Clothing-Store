@@ -16,15 +16,17 @@ import { TopProductService } from '../../services/product/top-product.service';
     './media.scss'
   ],
   providers:[
-    AllProductService,
     TopProductService,
     GetReviewsService,
     BrandImageService
   ]
 })
-export class MainComponent  implements OnInit, OnDestroy {
 
+
+export class MainComponent  implements OnInit, OnDestroy {
+  
   private subscribe: Subscription | null = null;
+  
   public productAll: DetailsProduct[] = [];
   public productTop: DetailsProduct[] = [];
 
@@ -33,6 +35,8 @@ export class MainComponent  implements OnInit, OnDestroy {
 
   public imgBrands: string[] = [];
   public reviews: IReviews[] = [];
+
+  public image:string = '';
 
   constructor(
     private allProduct: AllProductService,
@@ -48,8 +52,8 @@ export class MainComponent  implements OnInit, OnDestroy {
       this.imgBrands = brandImage;
       this.totalBrands = allProductData.length;
       this.totalProduct = allProductData.length;
-      this.productTop = allProductData;
-      this.productAll = topProductData;
+      this.productAll = allProductData;
+      this.productTop = topProductData;
       this.reviews = reviews;
     });
   }

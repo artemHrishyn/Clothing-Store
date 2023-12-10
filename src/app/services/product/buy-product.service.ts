@@ -6,17 +6,15 @@ import { IProductBuy, IProductBuyNew } from '../../interfaces/product-buy.interf
 })
 export class BuyProductService {
   private boughtProducts: IProductBuy[] = [];
-  private boughtProductsNew: IProductBuyNew[] = [];
-
-  constructor() { }
   
+  //  створює масив покупок
   public buyProduct(product: IProductBuy ) {
     this.boughtProducts.push(product);
   }
   
-  public getBoughtProducts() {
-    
-    this.boughtProductsNew = this.boughtProductsNew.filter((product, index, self) =>
+  // Повертає тільки ти дані якщо у елементу масива збигаются дані внутрі елемента
+  public getBoughtProducts(): IProductBuy[] {
+    this.boughtProducts = this.boughtProducts.filter((product, index, self) =>
       index === self.findIndex((p) =>
         p.image === product.image &&
         p.title === product.title &&

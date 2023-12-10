@@ -3,15 +3,15 @@ import { AllProductService } from './all-product.service';
 import { Observable, map } from 'rxjs';
 import { DetailsProduct } from '../../models/detailsProduct.class';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
+
 export class TopProductService {
 
   constructor(
     private allProduct: AllProductService,
   ) { }
-
+  
+  // Вивод ТОП товарів
   public getTopProduct(): Observable<DetailsProduct[]> {
     return this.allProduct.getAllProduct().pipe(
       map((data: DetailsProduct[]) => {

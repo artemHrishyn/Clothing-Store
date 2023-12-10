@@ -22,11 +22,12 @@ $fontFamilySatoshi: Satoshi sans-serif;
   position: relative;
   padding: 10px;
 
-  >span {
+  >img {
     position: absolute;
     right: 25px;
     top: 15px;
     cursor: pointer;
+    width: 25px;
   }
 }
 

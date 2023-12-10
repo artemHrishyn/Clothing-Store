@@ -17,7 +17,8 @@ export class DataCollectionsService {
   constructor(
     private dataService: DataService
   ) { }
-
+  
+  // Бере дані з сайта переводить їх у масив обєктів по інтерфейсу AllData
   public getData(): Observable<AllData[]> {
     return this.dataService.getData('clothes').pipe(
       map(data => {

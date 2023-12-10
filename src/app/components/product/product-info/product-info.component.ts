@@ -1,22 +1,23 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { IProductDetails } from '../../../interfaces/product-details.interface';
 import { BuyProductService } from '../../../services/product/buy-product.service';
 import { CounterPipe } from '../../../pipe/counter/counter.pipe';
 import { ProductBuy } from '../../../models/product-buy.class';
+import { ActivatedRoute} from '@angular/router';
+import { Subscription } from 'rxjs';
+import { AllProductService } from '../../../services/product/all-product.service';
 
 @Component({
   selector: 'csa-product-info',
   templateUrl: './product-info.component.html',
   styleUrl: './product-info.component.scss'
 })
-export class ProductInfoComponent {
+export class ProductInfoComponent implements OnInit, OnDestroy{
   
-  @Input() itemProduct: IProductDetails = {} as IProductDetails;
+  private subscribe: Subscription | null = null;
 
+  public itemProduct: IProductDetails = {} as IProductDetails;
   public imageProduct: string = "";
-  public percentageProduct: number = 0;
-  public price: number = 0;
-
   public sizeProduct: { [key: string]: boolean } = {
     '44': false,
     '46': false,
@@ -25,23 +26,58 @@ export class ProductInfoComponent {
     '54': false,
     '56-58': false,
   };
-  public isSale: boolean = true;
+  public percentageProduct: number = 0;
   public counter: number = 1;
+  public isSale: boolean = true;
   public isBuy: boolean = true;
+  public ratings: boolean[] = [];
+  public isCounter: boolean = false;
 
   constructor(
     private buyProductService: BuyProductService,
     private counterPipe: CounterPipe,
+    private allProduct: AllProductService,
+    private activatedRoute: ActivatedRoute
   ) {}
-  ngOnInit(): void {
-    this.imageProduct = this.itemProduct.image[0];
 
-    this.isSale = (this.itemProduct.sale !== 0) ? this.isSale : !this.isSale;
-    this.percentageProduct = this.itemProduct.sale / this.itemProduct.price;
-    this.sizeProduct = this.itemProduct.size;
+  private getLessonTheme(data: IProductDetails, id: string): void {
+    if (data.title === id) {
+      this.itemProduct = data;
+
+      this.imageProduct = this.itemProduct.image[0];
+      this.isSale = (this.itemProduct.sale !== 0) ? this.isSale : !this.isSale;
+      this.percentageProduct = this.itemProduct.sale / this.itemProduct.price;
+      this.sizeProduct = this.itemProduct.size;
+      for (let index = 1; index < 6; index++) {
+        this.ratings.push((index <= data.rating)? true: false); 
+      }
+    }
   }
 
+  ngOnInit(): void {
+    let type: string = '';
+    this.activatedRoute.params.forEach(param => type = param['type-product']);
+    
+    this.subscribe = this.allProduct.getAllProduct().subscribe((data: IProductDetails[]) => {
+      
+      data.forEach((elem: IProductDetails) => {
+        this.activatedRoute.params.forEach(param => type = param['type-product']);
+        this.getLessonTheme(elem, type);
+      });
+    });   
+  }
+
+
   public getSizeKeys(): string[] {
+    const keys = Object.keys(this.sizeProduct);
+    const value: boolean[] = [];
+    keys.forEach(key =>{
+      if (this.sizeProduct[key]) {
+        value.push(this.sizeProduct[key]);
+      }
+    });
+    this.isCounter = value.length > 0? true: false;
+    
     return Object.keys(this.sizeProduct);
   }
 
@@ -65,5 +101,9 @@ export class ProductInfoComponent {
 
     this.isBuy = !this.isBuy;
     this.buyProductService.buyProduct(item);
+  }
+  
+  ngOnDestroy(): void {
+    this.subscribe?.unsubscribe();
   }
 }
