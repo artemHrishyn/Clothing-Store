@@ -3,8 +3,17 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'csa-not-found',
   templateUrl: './not-found.component.html',
-  styleUrl: './not-found.component.scss'
+  styleUrls: [
+    './not-found.component.scss',
+    './media.scss'
+  ]
 })
 export class NotFoundComponent {
+  constructor(){
 
+  }
+
+  public goToHome(){
+
+  }
 }
