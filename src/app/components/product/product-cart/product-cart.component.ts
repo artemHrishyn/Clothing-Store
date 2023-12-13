@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DetailsProduct } from '../../../models/detailsProduct.class';
 import { ProductBuy } from '../../../models/product-buy.class';
 import { BuyProductService } from '../../../services/product/buy-product.service';
@@ -13,12 +13,10 @@ import { BuyProductService } from '../../../services/product/buy-product.service
 })
 export class ProductCartComponent implements OnInit {
   @Input() itemProduct: DetailsProduct = {} as DetailsProduct;
-  @Output() productClicked: EventEmitter<DetailsProduct> = new EventEmitter<DetailsProduct>();
-
-  public counter: number = 1;
+  @Input() buyTitle: string = 'Замовити';
+  
   public image: string = "";
   public price: number = 0;
-
   public isBuy: boolean = true;
   
   constructor(
@@ -39,7 +37,7 @@ export class ProductCartComponent implements OnInit {
       title: this.itemProduct.title,
       price: this.itemProduct.price,
       sale: this.itemProduct.sale,
-      counter: this.counter
+      counter: 1
     });
 
     this.isBuy = !this.isBuy;
@@ -52,10 +50,5 @@ export class ProductCartComponent implements OnInit {
       star += "★ ";
     }
     return star;
-  }
-
-  // методд для того щоб відкрити у каталозі детальню інформацію продукта
-  public openProduct(): void {
-    this.productClicked.emit(this.itemProduct);
   }
 }

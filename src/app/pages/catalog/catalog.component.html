@@ -24,7 +24,7 @@
     </div>
     <!-- Список усієї продукції -->
   
-    <div class="list-product" *ngIf="!isShowProduct">
+    <div class="list-product" >
       <nav>
         <ul class="pagination pagination-lg">
           <li class="page-item">
@@ -48,7 +48,7 @@
           <li *ngFor="let item of showArrayProducts; let i = index">
             <csa-product-cart
               [itemProduct]="item"
-              (productClicked)="handleProductClicked($event)"
+              [buyTitle]="buyTitle"
               (click)="showDetailsTheme(item)"
             ></csa-product-cart>
           </li>
@@ -73,11 +73,5 @@
         </ul>
       </nav>
     </div>
-  
-    <!-- Детальна інформація конкретного товара
-    <csa-product-info
-      *ngIf="isShowProduct"
-      [itemProduct]="valueProduct"
-    ></csa-product-info> -->
   </section>
   

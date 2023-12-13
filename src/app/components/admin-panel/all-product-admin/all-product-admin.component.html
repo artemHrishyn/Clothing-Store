@@ -1,6 +1,16 @@
 <form>
-  <label for="brand">Бренд товару:</label>
-  <input type="text" id="brand" #input (keyup)="searchBrandTitle(input.value)" />
+  <h4 for="brand">Бренд товару:</h4>
+  <div class="inputbox">
+    <div class="inputbox-content">
+      <input
+        type="text"
+        id="brand" #input (keyup)="searchBrandTitle(input.value)"
+        required
+      />
+      <label for="brands-img">Бренд товару:</label>
+      <span class="underline"></span>
+    </div>
+  </div>
   <csa-select-type></csa-select-type>
 </form>
   

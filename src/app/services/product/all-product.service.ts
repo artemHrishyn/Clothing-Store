@@ -15,6 +15,7 @@ export class AllProductService {
     private mixElements: MixElementsPipe
   ){}
   
+  // Перебирає дані з сайту та створює новий елемент класу DetailsProduct та повертає масив DetailsProduct
   public getAllProduct(): Observable<DetailsProduct[]> {
     return this.dataCollections.getData().pipe(
       map((data: IAllData[]) => {

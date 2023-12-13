@@ -14,7 +14,6 @@ export class BuyItemComponent {
   @Output() onCounter: EventEmitter<{ title: string, value: number }> = new EventEmitter<{ title: string, value: number }>();
 
   public sumItem: number = 0;
-  public close: boolean = false;
 
   constructor(
     private counterPipe: CounterPipe

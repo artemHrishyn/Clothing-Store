@@ -14,7 +14,10 @@
     <div class="product-item__info">
       <h1>{{ itemProduct.title }}</h1>
       <div class="rating">
-        <csa-rating [ratingValue]="itemProduct.rating"></csa-rating>
+        <ul class="rating__result">
+          <li *ngFor="let item of ratings" [ngClass]="item? 'active': ''" ></li>
+        </ul>
+        <!-- <csa-rating [ratingValue]="itemProduct.rating"></csa-rating> -->
       </div>
       <hr />
       <div class="coins">
@@ -50,7 +53,7 @@
         </ul>
       </div>
       <hr />
-      <div class="reserves">
+      <div class="reserves" *ngIf="isCounter">
         <div class="quantity">
           <span class="quantity__count" (click)="productCounter('minus')">-</span
           ><span>{{ counter }}</span

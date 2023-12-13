@@ -16,15 +16,17 @@ import { TopProductService } from '../../services/product/top-product.service';
     './media.scss'
   ],
   providers:[
-    AllProductService,
     TopProductService,
     GetReviewsService,
     BrandImageService
   ]
 })
-export class MainComponent  implements OnInit, OnDestroy {
 
+
+export class MainComponent  implements OnInit, OnDestroy {
+  
   private subscribe: Subscription | null = null;
+  
   public productAll: DetailsProduct[] = [];
   public productTop: DetailsProduct[] = [];
 
@@ -33,6 +35,8 @@ export class MainComponent  implements OnInit, OnDestroy {
 
   public imgBrands: string[] = [];
   public reviews: IReviews[] = [];
+
+  public image:string = '';
 
   constructor(
     private allProduct: AllProductService,

@@ -1,9 +1,10 @@
 <form novalidate [formGroup]="productData" (ngSubmit)="onSubmit(productData)">
     <h1>Новий Продукт</h1>
+    
     <div class="brand">
       <h5>Дані бренда:</h5>
       <div>
-        <p>Логотип:</p>
+        <p class="brand__title">Логотип:</p>
         <div class="inputbox">
           <div class="inputbox-content">
             <input
@@ -16,7 +17,12 @@
             <span class="underline"></span>
           </div>
         </div>
-        <p>Назва:</p>
+        <p class="error"
+          *ngIf="productData.get('brandImg')?.invalid && productData.get('brandImg')?.touched"
+        >
+          Поле обов'язкове для введення
+        </p>
+        <p class="brand__title">Назва:</p>
         <div class="inputbox">
           <div class="inputbox-content">
             <input
@@ -29,103 +35,50 @@
             <span class="underline"></span>
           </div>
         </div>
+        <p class="error"
+          *ngIf="productData.get('brandTitle')?.invalid && productData.get('brandTitle')?.touched"
+        >
+          Поле обов'язкове для введення
+        </p>
       </div>
     </div>
-    <div class="color">
-      <h5>Колір:</h5>
-      <ul formArrayName="color">
-        <li *ngFor="let contact of color.controls; let i = index">
-          {{ contact.value }}
-          <input type="color" class="form-control" [formControlName]="i" />
-        </li>
-      </ul>
-      <div class="color__btn">
-        <button class="btn btn-success" (click)="addColor()">Add color</button>
-        <button class="btn btn-danger" (click)="deleteColor()">
-          Delete color
-        </button>
-      </div>
-    </div>
-  
-    <div class="size" formGroupName="size">
-      <h5>Розмір:</h5>
+
+    <div class="coins">
       <div>
-        <p>
-          44:
-          <input type="checkbox" name="" id="" formControlName="44" />
-        </p>
-        <p>
-          48:
-          <input type="checkbox" name="" id="" formControlName="48" />
-        </p>
-        <p>
-          50-52:
-          <input type="checkbox" name="" id="" formControlName="50-52" />
-        </p>
-        <p>
-          46:
-          <input type="checkbox" name="" id="" formControlName="46" />
-        </p>
-        <p>
-          54:
-          <input type="checkbox" name="" id="" formControlName="54" />
-        </p>
-        <p>
-          56-58:
-          <input type="checkbox" name="" id="" formControlName="56-58" />
+        <p class="coins__title">Ціна:</p>
+        <div class="inputbox">
+          <div class="inputbox-content">
+            <input
+              type="number"
+              id="price"
+              formControlName="price"
+              min="0"
+              required
+            />
+            <label for="price">price:</label>
+            <span class="underline"></span>
+          </div>
+        </div>
+        <p class="error"
+          *ngIf="productData.get('price')?.invalid && productData.get('price')?.touched"
+        >
+          Поле обов'язкове для введення
         </p>
       </div>
-    </div>
-  
-    <div class="image">
-      <h5 class="inputbox-title">Картинки:</h5>
-      <ul formArrayName="image">
-        <li *ngFor="let control of image.controls; let i = index">
+        <div>
+          <p class="coins__title">Знижка:</p>
           <div class="inputbox">
             <div class="inputbox-content">
-              <input type="text" [formControlName]="i" required />
-              <label>Image {{ i + 1 }}:</label>
+              <input
+                type="number"
+                id="sale"
+                formControlName="sale"
+                min="0"
+                required
+              />
+              <label for="sale">sale:</label>
               <span class="underline"></span>
             </div>
-          </div>
-        </li>
-      </ul>
-      <div class="image__btn">
-        <button class="btn btn-success" (click)="addImage()">Add Img</button>
-        <button class="btn btn-danger" (click)="deleteImage()">
-          Delete image
-        </button>
-      </div>
-    </div>
-  
-    <div class="coins">
-      <p class="inputbox-title">Ціна:</p>
-      <div class="inputbox">
-        <div class="inputbox-content">
-          <input
-            type="number"
-            id="price"
-            formControlName="price"
-            min="0"
-            required
-          />
-          <label for="price">price:</label>
-          <span class="underline"></span>
-        </div>
-      </div>
-  
-      <p class="inputbox-title">Знижка:</p>
-      <div class="inputbox">
-        <div class="inputbox-content">
-          <input
-            type="number"
-            id="sale"
-            formControlName="sale"
-            min="0"
-            required
-          />
-          <label for="sale">sale:</label>
-          <span class="underline"></span>
         </div>
       </div>
     </div>
@@ -161,34 +114,114 @@
         </div>
       </div>
     </div>
-  
-    <div class="info">
-      <p class="inputbox-title">Рейтинг:</p>
-      <div class="inputbox">
-        <div class="inputbox-content">
-          <input
-            type="number"
-            id="rating"
-            formControlName="rating"
-            min="0"
-            max="5"
-            required
-          />
-          <label for="rating">rating:</label>
-          <span class="underline"></span>
-        </div>
+
+    <div class="color">
+      <h5>Колір:</h5>
+      <ul formArrayName="color">
+        <li *ngFor="let contact of color.controls; let i = index">
+          {{ contact.value }}
+          <input type="color" class="form-control" [formControlName]="i" />
+        </li>
+      </ul>
+      <div class="color__btn">
+        <button class="btn btn-success" (click)="addColor()">Add color</button>
+        <button class="btn btn-danger" (click)="deleteColor()">
+          Delete color
+        </button>
       </div>
-  
-      <p class="inputbox-title">Назва продукта:</p>
+    </div>
+
+    <div class="image">
+      <h5 class="inputbox-title">Картинки:</h5>
+      <ul formArrayName="image">
+        <li *ngFor="let control of image.controls; let i = index">
+          <div class="inputbox">
+            <div class="inputbox-content">
+              <input type="text" [formControlName]="i" required />
+              <label>Image {{ i + 1 }}:</label>
+              <span class="underline"></span>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="image__btn">
+        <button class="btn btn-success" (click)="addImage()">Add Img</button>
+        <button class="btn btn-danger" (click)="deleteImage()">
+          Delete image
+        </button>
+      </div>
+    </div>
+    
+    <div class="info">
+      <div class="info__rating">
+        <p class="info__rating__title">Рейтинг:</p>
+        <div class="inputbox">
+          <div class="inputbox-content">
+            <input
+              type="number"
+              id="rating"
+              formControlName="rating"
+              min="0"
+              max="5"
+              required
+            />
+            <label for="rating">rating:</label>
+            <span class="underline"></span>
+          </div>
+        </div>
+        <p class="info__rating__error error"
+          *ngIf="productData.get('rating')?.invalid && productData.get('rating')?.touched"
+        >
+          Поле обов'язкове для введення
+        </p>
+      </div>
+      <div>
+      <p class="title">Назва продукта:</p>
       <div class="inputbox">
         <div class="inputbox-content">
           <input type="text" id="title" formControlName="title" required />
-          <label for="title">Title:</label>
+          <label for="title">Назва продукта:</label>
           <span class="underline"></span>
         </div>
+        </div>
+        <p class="error"
+          *ngIf="productData.get('title')?.invalid && productData.get('title')?.touched"
+        >
+          Поле обов'язкове для введення
+        </p>
       </div>
     </div>
   
+    <div class="size" formGroupName="size">
+      <h5>Розмір:</h5>
+      <div>
+        <p>
+          44:
+          <input type="checkbox" name="" id="" formControlName="44" />
+        </p>
+        <p>
+          48:
+          <input type="checkbox" name="" id="" formControlName="48" />
+        </p>
+        <p>
+          50-52:
+          <input type="checkbox" name="" id="" formControlName="50-52" />
+        </p>
+        <p>
+          46:
+          <input type="checkbox" name="" id="" formControlName="46" />
+        </p>
+        <p>
+          54:
+          <input type="checkbox" name="" id="" formControlName="54" />
+        </p>
+        <p>
+          56-58:
+          <input type="checkbox" name="" id="" formControlName="56-58" />
+        </p>
+      </div>
+    </div>
+    
     <div class="type">
       <h5>Type:</h5>
       <div class="type__container">
