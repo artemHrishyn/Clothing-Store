@@ -1,9 +1,24 @@
 section {
-    padding: 2rem 5rem;
-    text-align: center;
-  
-    p {
-      text-align: justify;
-    }
+  padding: 32px 80px;
+  text-align: center;
+
+  p {
+    text-align: justify;
   }
-  
+}
+iframe {
+  width: 75vw; /* Займе 75% ширини екрану */
+  height: 60vh; /* Займе 60% висоти екрану */
+}
+
+@media only screen and (min-width: 768px) {
+  section{
+    padding: 32px 80px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  section{
+    padding: 25px 10px;
+  }
+}
