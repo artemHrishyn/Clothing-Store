@@ -13,7 +13,9 @@ import { TopProductService } from '../../services/product/top-product.service';
   templateUrl: './main.component.html',
   styleUrls: [
     './main.component.scss',
-    './media.scss'
+    './media.scss',
+    './service.scss',
+    './reviews.scss'
   ],
   providers:[
     TopProductService,

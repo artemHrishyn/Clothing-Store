@@ -1,418 +1,392 @@
 @media only screen and (min-width: 2500px) {
-    .selling {
-      h1 {
-        margin: 48px 0;
-        font-size: 70px;
-      }
-  
-      button {
-        margin-top: 30px;
-        font-size: 30px;
-  
-        .buy {
-          padding: 15px;
-        }
+  .selling {
+    h1 {
+      margin: 48px 0;
+      font-size: 70px;
+    }
+
+    button {
+      margin-top: 30px;
+      font-size: 30px;
+
+      .buy {
+        padding: 15px;
       }
     }
   }
-  
-  @media only screen and (min-width: 1750px) {
-    .global-info {
-      padding: 48px 160px;
-  
-      h1 {
-        font-size: 48px;
-        line-height: 48px;
-      }
-  
-      p {
-        margin: 32px 0;
-        font-size: 32px;
-        line-height: 32px;
-      }
-  
-      a {
-        margin: 15px 0px;
-        padding: 10px 15px;
-        font-size: 32px;
-      }
-  
-      ul {
-        margin-top: 32px;
-  
-        li {
-          margin-right: 48px;
-  
-          h3 {
-            font-size: 48px;
-          }
-  
-          p {
-            font-size: 32px;
-            line-height: 32px;
-          }
-        }
-      }
-  
-      img {
-        max-width: 640px;
-      }
+}
+    
+@media only screen and (min-width: 1750px) {
+  .global-info {
+    // padding: 120px;
+
+    h1 {
+      line-height: 48px;
     }
-  
-    .brand {
-      padding: 16px 48px;
-  
+
+    p {
+      margin: 32px 0;
+      line-height: 45px;
+    }
+
+    a {
+      margin: 15px 0px;
+      padding: 10px 15px;
+    }
+
+    ul {
+      margin-top: 32px;
+
       li {
-        max-width: 160px;
-      }
-    }
-  
-    .selling {
-      h1 {
-        margin: 48px 0;
-        font-size: 70px;
-      }
-  
-      button {
-        margin-top: 30px;
-        font-size: 20px;
-  
-        .buy {
-          padding: 10px;
+        margin-right: 48px;
+
+        p {
+          line-height: 32px;
         }
       }
     }
-  
-    .info__list {
-      grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: 1fr;
+
+    img {
+      max-width: 640px;
     }
-  
-    .service__img {
-      max-width: 82px;
-      border-radius: 35px 0px;
-      padding: 11px;
+  }
+
+  .brand {
+    padding: 16px 48px;
+
+    li {
+      max-width: 160px;
     }
-  
-    .service__text {
-      font-size: 24px;
+  }
+
+  .selling {
+    h1 {
+      margin: 48px 0;
+      font-size: 70px;
     }
-  
-    .service {
-      ul {
-        grid-template-columns: repeat(3, 1fr);
+
+    button {
+      margin-top: 30px;
+      font-size: 20px;
+
+      .buy {
+        padding: 10px;
       }
     }
   }
-  
-  @media only screen and (max-width: 1750px) {
-    .global-info {
-      padding: 5rem;
-  
-      h1 {
-        font-size: 2.5rem;
-        line-height: 2.5rem;
-      }
-  
-      p {
-        margin: 1rem 0;
-        font-size: 1.5rem;
-        line-height: 1.5rem;
-      }
-  
-      a {
-        margin: 15px 0px;
-        padding: 6px 10px;
-        font-size: 1.5rem;
-      }
-  
-      ul {
-        margin-top: 1rem;
-  
-        li {
-          margin-right: 3rem;
-  
-          h3 {
-            font-size: 2.5rem;
-            line-height: 2.5rem;
-          }
-  
-          p {
-            font-size: 1.5rem;
-            line-height: 1.5rem;
-          }
-        }
-      }
-  
-      img {
-        max-width: 27rem;
-      }
-    }
-  
-    .selling {
-      h1 {
-        margin: 40px 0;
-        font-size: 70px;
-      }
-  
-      button {
-        margin-top: 30px;
-        font-size: 20px;
-  
-        .buy {
-          padding: 10px;
-        }
-      }
-    }
-  
-    .service__img {
-      max-width: 60px;
-      border-radius: 20px 0px;
-      padding: 11px;
-    }
-  
-    .service__text {
-      font-size: 24px;
-    }
-  
-    .service {
-      ul {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-  
-    .info__list {
-      grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: 1fr;
-    }
+
+  .info__list {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
   }
-  
-  @media only screen and (max-width: 1250px) {
-    .global-info {
-      padding: 2rem;
-  
-      h1 {
-        font-size: 2rem;
-        line-height: 2rem;
-      }
-  
-      p {
-        margin: 1rem 0;
-        font-size: 1.5rem;
-        line-height: 1.5rem;
-      }
-  
-      a {
-        margin: 15px 0px;
-        padding: 6px 10px;
-        font-size: 1.5rem;
-      }
-  
-      ul {
-        margin-top: 1rem;
-  
-        li {
-          margin-right: 3rem;
-  
-          h3 {
-            font-size: 2.5rem;
-            line-height: 2.5rem;
-          }
-  
-          p {
-            font-size: 1.3rem;
-            line-height: 1.3rem;
-          }
-        }
-      }
-  
-      img {
-        max-width: 27rem;
-      }
-    }
-  
-    .brand {
-      padding: 1rem 3rem;
-  
-      li {
-        max-width: 7rem;
-      }
-    }
-  
-    .info__list {
+
+  .service__img {
+    max-width: 82px;
+    border-radius: 35px 0px;
+    padding: 11px;
+  }
+
+  .service__text {
+    font-size: 24px;
+  }
+
+  .service {
+    ul {
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(2, 1fr);
     }
   }
-  
-  @media only screen and (max-width: 1024px) {
-    .selling {
-      h1 {
-        margin: 30px 0;
-        font-size: 50px;
-      }
-  
-      button {
-        margin-top: 30px;
-        font-size: 20px;
-  
-        .buy {
-          padding: 10px;
+}
+
+@media only screen and (max-width: 1750px) {
+  .global-info {
+    // padding: 120px;
+
+    h1 {
+      line-height: 40px;
+    }
+
+    p {
+      margin: 16px 0;
+      line-height: 24px;
+    }
+
+    a {
+      margin: 15px 0px;
+      padding: 6px 10px;
+    }
+
+    ul {
+      margin-top: 16px;
+
+      li {
+        margin-right: 48px;
+
+        h3 {
+          line-height: 40px;
+        }
+
+        p {
+          line-height: 24px;
         }
       }
     }
-  
-    .service {
-      padding: 0 30px;
+
+    img {
+      max-width: 27rem;
     }
-  
-    .service__img {
+  }
+
+  .selling {
+    h1 {
+      margin: 40px 0;
+      font-size: 70px;
+    }
+
+    button {
+      margin-top: 30px;
+      font-size: 20px;
+
+      .buy {
+        padding: 10px;
+      }
+    }
+  }
+
+  .service__img {
+    max-width: 60px;
+    border-radius: 20px 0px;
+    padding: 11px;
+  }
+
+  .service__text {
+    font-size: 24px;
+  }
+
+  .service {
+    ul {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .info__list {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+  }
+}
+
+@media only screen and (max-width: 1250px) {
+  .global-info {
+
+    h1 {
+      line-height: 24px;
+    }
+
+    p {
+      margin: 16px 0;
+      line-height: 24px;
+    }
+
+    a {
+      margin: 15px 0px;
+      padding: 6px 10px;
+    }
+
+    ul {
+      margin-top: 16px;
+
+      li {
+        margin-right: 48px;
+
+        h3 {
+          line-height: 40px;
+        }
+
+        p {
+          line-height: 21px;
+        }
+      }
+    }
+
+    img {
+      max-width: 435px;
+    }
+  }
+
+  .brand {
+    padding: 16px 48px;
+
+    li {
+      max-width: 115px;
+    }
+  }
+
+  .info__list {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+    
+@media only screen and (max-width: 1024px) {
+  .selling {
+    h1 {
+      margin: 30px 0;
+      font-size: 50px;
+    }
+
+    button {
+      margin-top: 30px;
+      font-size: 20px;
+
+      .buy {
+        padding: 10px;
+      }
+    }
+  }
+
+  .service {
+    padding: 0 30px;
+    
+    &__img {
       max-width: 60px;
       border-radius: 20px 0px;
     }
   
-    .service__text {
+    &__text {
       font-size: 16px;
     }
   }
-  
-  @media only screen and (max-width: 768px) {
-    .global-info {
-      ul {
-        li {
-          margin-right: 5rem;
-        }
-      }
-  
-      img {
-        max-width: 22rem;
-      }
-    }
-  
-    .brand {
-      padding: 1rem 0;
-  
+
+  .reviews{
+    margin: 10px;
+  }
+}
+    
+@media only screen and (max-width: 768px) {
+  .global-info {
+    ul {
       li {
-        max-width: 5rem;
+        margin-right: 88px;
       }
     }
-  
-    .selling {
-      h1 {
-        margin: 10px 0;
-        font-size: 30px;
-      }
+
+    img {
+      max-width: 355px;
     }
-  
-    .service__img {
-      max-width: 40px;
-      padding: 6px;
+  }
+
+  .brand {
+    padding: 16px 0;
+
+    li {
+      max-width: 80px;
     }
-  
-    .service__text {
-      font-size: 12px;
-    }
-  
+  }
+
+  .selling {
     h1 {
       margin: 10px 0;
       font-size: 30px;
     }
-  
-    .info__list {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(3, 1fr);
-    }
   }
-  
-  @media only screen and (max-width: 690px) {
-    .global-info {
-      padding: 1rem;
-  
-      h1 {
-        font-size: 2rem;
-        line-height: 2rem;
-      }
-  
-      p {
-        margin: 1rem 0;
-        font-size: 1rem;
-        line-height: 1rem;
-      }
-  
-      a {
-        margin: 0px;
-        padding: 4px 9px;
-        font-size: 1rem;
-      }
-  
-      ul {
-        margin-top: 1rem;
-  
-        li {
-          margin-right: 1rem;
-          max-width: 8rem;
-          width: 100%;
-  
-          h3 {
-            font-size: 1.5rem;
-          }
-  
-          p {
-            font-size: 1rem;
-            line-height: 1rem;
-          }
+
+  .service__img {
+    max-width: 40px;
+    padding: 6px;
+  }
+
+  .service__text {
+    font-size: 12px;
+  }
+
+  h1 {
+    margin: 10px 0;
+    font-size: 30px;
+  }
+
+  .info__list {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
+    
+@media only screen and (max-width: 690px) {
+  .global-info {
+
+    h1 {
+      line-height: 36px;
+    }
+
+    p {
+      margin: 16px 0;
+      line-height: 16px;
+    }
+
+    a {
+      margin: 0px;
+      padding: 4px 9px;
+    }
+
+    ul {
+      margin-top: 16px;
+
+      li {
+        margin-right: 16px;
+        max-width: 128px;
+        width: 100%;
+
+        p {
+          line-height: 16px;
         }
       }
     }
-  
-    .brand {
-      padding: 1rem 0;
-  
-      li {
-        max-width: 4rem;
-      }
+  }
+
+  .brand {
+    padding: 16px 0;
+
+    li {
+      max-width: 72px;
     }
   }
-  
-  @media only screen and (max-width: 425px) {
-  
-    .global-info {
-      h1 {
-        font-size: 24px;
-        line-height: 24px;
-      }
-  
-      p {
-        margin: 5px 0;
-      }
-  
-      ul {
-        margin-top: 8px;
-      }
-  
-      img {
-        max-width: 15rem;
-      }
+}
+    
+@media only screen and (max-width: 425px) {
+
+  .global-info {
+    h1 {
+      line-height: 24px;
     }
-  
-    .service {
-      ul {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(3, auto);
-        grid-row-gap: 5px;
-      }
+
+    p {
+      margin: 5px 0;
     }
-  
-    .info__list {
+
+    ul {
+      margin-top: 8px;
+    }
+
+    img {
+      max-width: 240px;
+    }
+  }
+
+  .service {
+    ul {
       grid-template-columns: 1fr;
-      grid-template-rows: 1fr;
-    }
-  
-    .selling {
-      h1 {
-        margin: 10px 0;
-        font-size: 25px;
-      }
+      grid-template-rows: repeat(3, auto);
+      grid-row-gap: 5px;
     }
   }
-  
+
+  .info__list {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .selling {
+    h1 {
+      margin: 10px 0;
+      font-size: 25px;
+    }
+  }
+}

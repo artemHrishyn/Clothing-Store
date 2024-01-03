@@ -1,0 +1,151 @@
+:host {
+  margin: 0;
+  padding: 0;
+  -webkit-text-size-adjust: none;
+  height: 100%;
+  overflow: hidden;
+  background: #181828;
+  font-size: 14px;
+  line-height: 1;
+}
+
+label {
+  cursor: pointer;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  background: transparent;
+  text-decoration: none;
+  color: #000;
+}
+
+input, select, button, textarea {
+  margin: 0;
+  font-size: 100%;
+}
+
+.top-header:before {
+    background-image: url(https://1.bp.blogspot.com/-gxsOcYWghHA/Xp_izTh4sFI/AAAAAAAAU8s/y637Fwg99qAuzW9na_NT_uApny8Vce95gCEwYBhgL/s1600/header-footer-gradient-bg.png);
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-repeat: repeat-x;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity:0.5;
+}
+
+:focus {
+  outline: 0;
+}
+
+
+.error {
+    overflow: hidden;
+    max-height: 100vh;
+    min-height: 100vh;
+    position: relative;
+    padding: 240px 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin-top: 70px;
+  
+    &__content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+
+        &__message {
+            text-align: center;
+            color: #181828;
+
+            h1 {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 900;
+                text-transform: uppercase;
+                letter-spacing: 5px;
+                 font-size: 5.6rem;
+                padding-bottom: 40px;
+                max-width: 960px;
+                margin: 0 auto;
+            }
+
+            p {
+                font-family: 'Montserrat', sans-serif;
+                line-height: 42px;
+                font-size: 18px;
+                padding: 0 60px;
+                max-width: 680px;
+                margin: auto;
+            }
+        }
+
+        &__nav {
+            max-width: 600px;
+            margin: 40px auto 0;
+            text-align: center;
+            
+            a {
+                height: 45px;
+                line-height: 45px;
+                width: 170px;
+                display: inline-block;
+                vertical-align: top;
+                margin: 0 15px;
+                border: 1px solid #181828;
+                color: #181828;
+                text-decoration: none;
+                font-family: 'Montserrat', sans-serif;
+                text-transform: uppercase;
+                font-size: 11px;
+                letter-spacing: .1rem;
+                position: relative;
+                overflow: hidden;
+                cursor: pointer;
+            
+                &:before {
+                    content: '';
+                    height: 200px;
+                    background: #212121;
+                    position: absolute;
+                    top: 70px;
+                    right: 70px;
+                    width: 260px;
+                    -webkit-transition: all .3s;
+                    transition: all .3s;
+                    -webkit-transform: rotate(50deg);
+                    transform: rotate(50deg);
+                }
+                
+                &:after {
+                    -webkit-transition: all .3s;
+                    transition: all .3s;
+                    z-index: 999;
+                    position: relative;
+                    content: "Home Page";
+                }
+                
+                &:hover {
+                    color: #fff;
+                    
+                    &:before {
+                        top: -60px;
+                        right: -50px;
+                    }
+                }
+            }
+        }
+    }
+}
+/* 2.1. END Section Error */
