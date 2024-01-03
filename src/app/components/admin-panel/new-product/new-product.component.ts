@@ -6,7 +6,11 @@ import { Types } from '../../../interfaces/type.enum';
 @Component({
   selector: 'csa-new-product',
   templateUrl: './new-product.component.html',
-  styleUrl: './new-product.component.scss'
+  styleUrls: [
+    './new-product.component.scss',
+    './inputbox.scss',
+    './type.scss'
+  ]
 })
 export class NewProductComponent {
   
