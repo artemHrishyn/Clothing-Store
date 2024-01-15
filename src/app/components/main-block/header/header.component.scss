@@ -7,27 +7,30 @@ $colorActive: #ea0606;
 
 // font
 $fontFamilySatoshi: Satoshi sans-serif;
-
 $sizeWidth: 3vw;
 
 header {
   background-color: $colorBlack;
   width: 100%;
-  padding: 0 32px;
 }
 
 nav {
   display: grid;
-  @include gridTemplateColumnsHead();
+  grid-template-columns: 1fr 90px;
   justify-items: center;
-  padding: 0 24px;
-  width: 100%;
+  align-items: center;
 }
 
 .title {
   display: flex;
   width: 100%;
   align-items: center;
+  margin-left: 20px;
+
+  img{
+    margin: 0 20px;
+    @include sizeClamp(max-width, 20px, $sizeWidth, 35px);
+  }
 
   h1 {
     color: $colorWhite;
@@ -36,23 +39,19 @@ nav {
   }
 }
 
-.mini-menu {
-  margin: 0 32px;
-  @include sizeClamp(max-width, 16px, $sizeWidth, 48px);
-}
-
 .menu {
-  @include sizeClamp(max-width, 395px, $sizeWidth, 500px);
-  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
 
   li {
-    @include sizeClamp(margin-right, 16px, $sizeWidth, 160px);
+    margin-right: clamp(35px, 13vw ,300px);
 
     a {
       text-decoration: none;
       color: $colorWhite;
       font-family: $fontFamilySatoshi;
-      font-size: 30px;
+      font-size: clamp(10px, 3vw, 20px);
       font-weight: 400;
 
       &.active {
@@ -70,48 +69,13 @@ nav {
 
 
 .personal {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-items: center;
-  align-items: center;
-
-  >img {
-    margin: 0 2rem;
-    @include sizeClamp(max-width, 1rem, $sizeWidth, 3rem);
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  
+  img {
+    @include sizeClamp(max-width, 25px, $sizeWidth, 48px);
+    margin-right: 10px;
     cursor: pointer;
   }
-}
-
-.menu-2 {
-  display: flex;
-  justify-content: space-around;
-
-  a {
-    text-decoration: none;
-    color: $colorWhite;
-    font-family: $fontFamilySatoshi;
-    @include sizeClamp(font-size, 1rem, $sizeWidth, 1.5rem);
-    font-weight: 400;
-
-    &.active {
-      cursor: not-allowed;
-      pointer-events: none;
-      opacity: 0.5;
-    }
-
-    &:hover {
-      color: rgb(106, 255, 193);
-    }
-  }
-}
-
-
-app-login-form{
-  position: fixed;
-  top: 20%;
-  right: 30%;
-  z-index: 1;
-  padding: 4rem 10rem;
-  background-color: #81c1eb;
-  box-shadow: 14px 14px 64px 3px rgba(0, 0, 0, 0.53);
 }
