@@ -35,6 +35,9 @@ nav {
   h1 {
     color: $colorWhite;
     font-family: $fontFamilySatoshi;
+    font-weight: 700;
+    font-size: clamp(30px, 3vw ,45px);
+    letter-spacing: 5px;
     cursor: pointer;
   }
 }
