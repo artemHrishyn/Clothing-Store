@@ -8,8 +8,9 @@
 }
 
 .diamond {
-  margin-left: 10px;
-  margin-top: 10px;
+  position: relative;
+  margin-left: 5px;
+  margin-top: 70px;
   width: 60px;
   height: 60px;
   background-color: #555;
@@ -19,6 +20,7 @@
   font-size: 16px;
   letter-spacing: -0.5px;
   transform: rotate(45deg);
+  z-index: 5;
 
   &:hover {
     animation: changeBackground 3s linear infinite;

@@ -3,9 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MainComponent } from './main.component';
 import { ReviewsModule } from '../../components/reviews/reviews.module';
 import { ProductModule } from '../../components/product/product.module';
-
-
-
+import { BrandImageModule } from '../../components/brand-image/brand-image.module';
 @NgModule({
   declarations: [
     MainComponent
@@ -13,7 +11,8 @@ import { ProductModule } from '../../components/product/product.module';
   imports: [
     CommonModule,
     ProductModule,
-    ReviewsModule
+    ReviewsModule,
+    BrandImageModule
   ],
   exports:[
     MainComponent

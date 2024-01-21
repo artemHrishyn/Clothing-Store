@@ -4,33 +4,3 @@ $colorBlack: #000;
 // font
 $fontFamilyIntegral: Integral CF sans-serif;
 
-/* service */
-.service {
-    display: flex;
-    
-    ul {
-      margin: 56px auto;
-      display: grid;
-      list-style: none;
-  
-      li {
-        display: flex;
-        justify-content: space-between;
-        max-width: 480px;
-        width: 100%;
-        align-items: center;
-      }
-  
-      .service__img {
-        width: 100%;
-        background-color: $colorBlack;
-      }
-  
-      .service__text {
-        color: $colorBlack;
-        font-family: $fontFamilyIntegral;
-        font-weight: 400;
-        margin: 0 12px;
-      }
-    }
-}
