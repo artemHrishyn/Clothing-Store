@@ -40,6 +40,8 @@ export class ProductInfoComponent implements OnInit, OnDestroy{
     private activatedRoute: ActivatedRoute
   ) {}
 
+
+  // Призначення до товару Індекс
   private getLessonTheme(data: IProductDetails, id: string): void {
     if (data.title === id) {
       this.itemProduct = data;
