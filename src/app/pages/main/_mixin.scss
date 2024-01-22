@@ -1,15 +1,63 @@
 @mixin gridTemplateGlobalInfo() {
-    @media only screen and (min-width: 1250px) {
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 160px;
-    }
   
-    @media only screen and (max-width: 1250px) {
-      grid-gap: 16px;
-    }
-  
-    @media only screen and (max-width: 1024px) {
-      grid-template-columns: 1fr;
-    }
+  @media only screen and (max-width: 2560px) {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 160px;
+    margin: 40px 140px;
   }
   
+  @media only screen and (max-width: 1280px) {
+    grid-gap: 16px;
+    margin: 30px 65px
+  }
+  
+  @media only screen and (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media only screen and (max-width: 768px) {
+    margin: 20px 35px
+  }
+  
+  @media only screen and (max-width: 320px) {
+    margin: 10px;
+  }
+}
+
+@mixin gridTemplateSelling(){
+  
+  @media only screen and (max-width: 2560px) {
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 20px;
+  }
+  
+  @media only screen and (max-width: 1450px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px;
+  }
+  
+  @media only screen and (max-width: 890px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+@mixin gridTemplateService(){
+  
+  @media only screen and (max-width: 2560px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media only screen and (max-width: 1600px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 40px;
+  }
+  
+  @media only screen and (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+
+}

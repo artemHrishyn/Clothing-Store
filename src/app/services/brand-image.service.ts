@@ -25,23 +25,8 @@ export class BrandImageService {
         });
         
         const randomImage: string[] = this.mixElements.transform(image);
-        return this.imageBrandNew(randomImage);
+        return randomImage;
       })
     );
-  }
-  
-  private imageBrandNew(value: string[]): string[]{
-    const newArray: string[] = [];
-    if (window.innerWidth > 1500) {
-      for (let index = 0; index < 7; index++) {
-        newArray.push(value[index]);
-      }
-    }
-    else {
-      for (let index = 0; index < 5; index++) {
-        newArray.push(value[index]);
-      }
-    }
-    return newArray;
   }
 }

@@ -10,8 +10,9 @@ import { NewProductModule } from './new-product/new-product.module';
   declarations: [],
   imports: [
     CommonModule,
+  ],
+  exports:[
     AllProductAdminModule,
-    ItemProductAdminModule,
     NewProductModule
   ]
 })

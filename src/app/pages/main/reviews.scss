@@ -11,20 +11,32 @@ $fontFamilyInter: Inter sans-serif;
 .reviews {
     display: flex;
     flex-direction: column;
-    margin: 64px;
+    margin: clamp(0px, 5vw, 64px);
     padding: 20px;
     background-image: url("/assets/image/bg-reviews.jpg");
     background-size: cover;
-  
+    
     h1 {
-      margin: 50px;
-      color: $colorBlack;
-      font-family: $fontFamilyInter;
-      font-size: 50px;
-      font-weight: 600;
-      text-transform: capitalize;
+      margin: clamp(1px, 5vw, 50px);
+      color: #600909;;
       text-align: center;
+      font-size: clamp(30px, 5vw, 48px);
+      font-family: $fontFamilyInter;
+      letter-spacing: 0.1em;
+      transition: 0.3s;
+      text-shadow: 1px 1px 0 grey, 1px 2px 0 grey, 1px 3px 0 grey, 1px 4px 0 grey,
+        1px 5px 0 grey, 1px 6px 0 grey, 1px 7px 0 grey, 1px 8px 0 grey,
+        5px 13px 15px black;
     }
+    
+    h1:hover {
+      transition: 0.3s;
+      transform: scale(1.1)translate(-5%, -5%);
+      text-shadow: 1px -1px 0 grey, 1px -2px 0 grey, 1px -3px 0 grey,
+        1px -4px 0 grey, 1px -5px 0 grey, 1px -6px 0 grey, 1px -7px 0 grey,
+        1px -8px 0 grey, 5px -13px 15px black, 5px -13px 25px #808080;
+    }
+
   
     ul{
       list-style: none;

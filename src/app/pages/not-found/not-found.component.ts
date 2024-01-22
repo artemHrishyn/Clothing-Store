@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GoToUrlService } from '../../services/go-to-url.service';
 
 @Component({
   selector: 'csa-not-found',
@@ -10,11 +11,12 @@ import { Component } from '@angular/core';
   ]
 })
 export class NotFoundComponent {
-  constructor(){
+  
+  constructor(
+    private goToUrlService: GoToUrlService
+  ) {}
 
-  }
-
-  public goToHome(){
-
+  public goToUrl(value: string) {
+    this.goToUrlService.goToUrl(value);
   }
 }

@@ -1,5 +1,3 @@
-@import '_mixin.scss';
-
 // color
 $colorBlack: #000;
 $colorWhite: #fff;
@@ -14,39 +12,39 @@ $fontFamilyInter: Inter sans-serif;
   color: $colorWhite;
   display: flex;
   justify-content: center;
-  padding: 30px 100px;
+  padding: 30px 200px;
 }
 
-.content {
-  display: grid;
-  @include gridTemplateColumnsInfo();
+ul {
+  list-style: none;
+}
+
+.footer {
   width: 100%;
 
   h1 {
+    margin-bottom: 40px;
     font-family: $fontFamilySatoshi;
     color: $colorWhite;
     font-weight: 700;
+    font-size: clamp(30px, 3vw ,45px);
+    letter-spacing: 5px;
     cursor: pointer;
   }
-
-
+  
   h2 {
     margin-bottom: 10px;
     font-family: $fontFamilySatoshi;
     color: $colorWhite;
     text-transform: uppercase;
     font-weight: 800;
+    font-size: clamp(20px, 3vw ,30px);
+    letter-spacing: 3px;
   }
-
-  ul {
-    list-style: none;
-  }
-
-  >ul {
+  
+  &__info {
     width: 100%;
     display: grid;
-    @include gridTemplateList();
-    justify-items: center;
 
     li {
       margin-bottom: 10px;
@@ -55,26 +53,31 @@ $fontFamilyInter: Inter sans-serif;
       color: $colorWhite;
       font-weight: 300;
     }
-  }
-}
+    
+    &__social {
+      list-style: none;
+    
+      a {
+        display: flex;
+        color: $colorWhite;
+        font-family: $fontFamilyInter;
+        font-weight: 400;
+        position: relative;
+        text-decoration: none;
 
-.social {
-  list-style: none;
+        img{
+          margin-right: 20px;
+          max-width: 30px;
+        }
+      }
+      
+      &__link {
+        display: flex;
 
-  a {
-    display: flex;
-    color: $colorWhite;
-    font-family: $fontFamilyInter;
-    font-weight: 400;
-    position: relative;
-    text-decoration: none;
-  }
-}
-
-.social__info {
-  display: flex;
-
-  img {
-    max-width: 30px;
+        li img {
+          max-width: 30px;
+        }
+      }
+    }
   }
 }

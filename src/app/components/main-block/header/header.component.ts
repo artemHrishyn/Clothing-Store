@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { GoToUrlService } from '../../../services/go-to-url.service';
 
 @Component({
@@ -9,17 +9,30 @@ import { GoToUrlService } from '../../../services/go-to-url.service';
     './media.scss',
   ]
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   public isShowMenu: boolean = false;
+  public isMiniMenu: boolean = false;
   public isLogin: boolean = false;
   public userImg: string = "assets/image/icon/user.svg";
 
   constructor(
     private goToUrlService: GoToUrlService
   ) {}
+  ngOnInit(): void {
+    if(window.innerWidth > 768){
+      this.isShowMenu = true;
+      this.isMiniMenu = false;
+    }
+    else{
+      this.isShowMenu = false;
+      this.isMiniMenu = true;
+    }
+  }
   
   public showMiniMenu():void {
     this.isShowMenu = !this.isShowMenu;
+    console.log(this.isShowMenu);
+    
   }
 
   public loginShow(): void {
@@ -43,5 +56,17 @@ export class HeaderComponent {
   }
   public returnImage(image: string) {
     this.userImg = image;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    if(window.innerWidth > 768){
+      this.isShowMenu = true;
+      this.isMiniMenu = false;
+    }
+    else{
+      this.isShowMenu = false;
+      this.isMiniMenu = true;
+    }
   }
 }

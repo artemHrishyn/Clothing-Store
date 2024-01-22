@@ -46,7 +46,7 @@ export class ShoppingComponent {
     this.isEmpty = (this.boughtProducts.length != 0) ? false : true;
   }
 
-  public backMainPage(value: string) {
+  public goToUrl(value: string) {
     this.goToUrlService.goToUrl(value);
   }
 
