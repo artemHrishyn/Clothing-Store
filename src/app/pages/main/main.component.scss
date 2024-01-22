@@ -224,6 +224,7 @@ $fontFamilySatoshi: "Satoshi CF sans-serif";
   &__text {
     color: $colorBlack;
     font-family: $fontFamilyIntegral;
+    font-size: clamp(13px, 3vw ,24px);
     font-weight: 400;
     margin: 0 12px;
   }

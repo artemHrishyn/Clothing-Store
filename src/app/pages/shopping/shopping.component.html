@@ -5,7 +5,7 @@
       <h2>Список замовлень пустий</h2>
       <img src="assets/image/emptyBuy.jpg" alt="shop" />
       <p>Ви ще нічого не замовляли</p>
-      <button (click)="backMainPage('main')">Перейти на головну</button>
+      <button class="shopping__empty__home"> <a (click)="goToUrl('')">Перейти на головну</a></button>
     </div>
   
     <div class="shopping__info" *ngIf="!isEmpty">

@@ -14,98 +14,136 @@ $colorWhite: #fff;
     text-transform: uppercase;
     margin-bottom: 16px;
   }
-}
-
-.shopping__empty {
-  h2 {
-    margin-bottom: 48px;
-    color: $colorBlack;
-    font-size: 32px;
-  }
-
-  img {
-    max-width: 560px;
-  }
-
-  p {
-    margin: 21px 0;
-    color: $colorBlack;
-    font-size: 20px;
-  }
-
-  button {
-    border: none;
-    border-radius: 32px;
-    padding: 5px 30px;
-    background-color: $colorWhite;
-    color: $colorBlack;
-  }
-
-  button:hover {
-    background-color: $colorBlack;
-    color: $colorWhite;
-  }
-}
-
-.shopping__info {
-  display: grid;
-  @include gridTemplateList();
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
-
-  >div {
-    border: 2px solid darkblue;
-    border-radius: 32px;
-    padding: 32px;
-  }
-
-  ul {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    height: 360px;
-    overflow: auto;
-
-    &::-webkit-scrollbar-track {
-      -webkit-box-shadow: inset 0 0 6px rgba(20, 20, 20, 0.5);
-      background-color: #F5F5F5;
-      border-radius: 10px;
+  
+  
+  &__empty {
+    h2 {
+      margin-bottom: 48px;
+      color: $colorBlack;
+      font-size: 32px;
     }
 
-    &::-webkit-scrollbar {
-      width: 10px;
-      background-color: #F5F5F5;
+    img {
+      max-width: 560px;
     }
 
-    &::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      background-image: -webkit-gradient(linear,
-      left bottom,
-      left top,
-      color-stop(0, rgb(250, 250, 0)),
-      color-stop(0.50, rgb(125, 125, 125)),
-      color-stop(1, rgb(0, 0, 250)));
+    p {
+      margin: 21px 0;
+      color: $colorBlack;
+      font-size: 20px;
+    }
+
+    &__home {
+      border: none;
+      background-color: inherit;
+      line-height: 1;
+      color: currentColor;
+      position: relative;
+      
+      a {
+        padding: 10px 20px;
+        text-transform: uppercase;
+        background-color: $colorWhite;
+        display: inherit;
+        border: 2px solid currentColor;
+        border-radius: 32px;
+        position: relative;
+        z-index: 1;
+        transform: translate(-6px, -6px);
+        transition: .2s ease-in-out;
+      }
+    
+      &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 2em;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 2px solid currentColor;
+        background-color: inherit;
+        pointer-events: none;
+        mix-blend-mode: darken;
+        filter: contrast(1200%) brightness(100%) saturate(0.25);
+        overflow: hidden;
+        background:
+          linear-gradient(182deg, currentColor, currentColor 25%, $colorBlack),
+          url("data:image/svg+xml,%3Csvg viewBox='0 0 400 75' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      }
+    
+      &:hover {
+        a {
+          transform: translate(0px, 0px);
+          transition: .2s ease-in-out;
+          color: $colorWhite;
+          background-color: $colorBlack;
+        }
+      }
     }
   }
-}
-
-.shopping__info__item {
-  h2 {
-    font-size: 29px;
-    color: $colorBlack;
-    text-transform: capitalize;
-  }
-
-  button {
-    border-radius: 32px;
-    padding: 5px 30px;
-    background-color: $colorWhite;
-    color: $colorBlack;
-    text-transform: capitalize;
-  }
-
-  button:hover {
-    background-color: $colorBlack;
-    color: $colorWhite;
+  
+  &__info {
+    display: grid;
+    @include gridTemplateList();
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+  
+    >div {
+      border: 2px solid darkblue;
+      border-radius: 32px;
+      padding: 32px;
+    }
+  
+    ul {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      height: 360px;
+      overflow: auto;
+  
+      &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(20, 20, 20, 0.5);
+        background-color: #F5F5F5;
+        border-radius: 10px;
+      }
+  
+      &::-webkit-scrollbar {
+        width: 10px;
+        background-color: #F5F5F5;
+      }
+  
+      &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-image: -webkit-gradient(linear,
+        left bottom,
+        left top,
+        color-stop(0, rgb(250, 250, 0)),
+        color-stop(0.50, rgb(125, 125, 125)),
+        color-stop(1, rgb(0, 0, 250)));
+      }
+    }
+    
+    &__item {
+      h2 {
+        font-size: 29px;
+        color: $colorBlack;
+        text-transform: capitalize;
+      }
+    
+      &__but {
+        border: none;
+        border-radius: 32px;
+        padding: 5px 30px;
+        background-color: $colorWhite;
+        color: $colorBlack;
+        
+        &:hover {
+          background-color: $colorBlack;
+          color: $colorWhite;
+        }
+      }
+    }
   }
 }

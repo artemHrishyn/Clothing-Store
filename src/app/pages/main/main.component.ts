@@ -13,8 +13,6 @@ import { TopProductService } from '../../services/product/top-product.service';
   templateUrl: './main.component.html',
   styleUrls: [
     './main.component.scss',
-    './media.scss',
-    './service.scss',
     './reviews.scss'
   ],
   providers:[
@@ -41,7 +39,6 @@ export class MainComponent  implements OnInit, OnDestroy {
     private allProduct: AllProductService,
     private topProduct: TopProductService,
     private getReviews: GetReviewsService,
-    private brandImage: BrandImageService,
     private goToUrlService : GoToUrlService
     ){}
 
