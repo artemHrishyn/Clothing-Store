@@ -43,12 +43,4 @@ export class ProductCartComponent implements OnInit {
     this.isBuy = !this.isBuy;
     this.buyProductService.buyProduct(item);
   }
-
-  public createStar(value: number): string {
-    let star: string = "";
-    for (let index = 0; index < value; index++) {
-      star += "★ ";
-    }
-    return star;
-  }
 }

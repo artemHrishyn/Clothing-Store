@@ -22,8 +22,12 @@ export class BrandImageComponent implements OnInit {
   ngOnInit(): void {
     
     this.subscribe = this.getData().subscribe(([brandImage]) => {
+
+    brandImage.filter(elem => elem !== null).forEach(res => {
+      this.imgBrands.push(res);
+    });
       
-    this.imgBrands = brandImage;
+    // this.imgBrands = brandImage;
     this.chengeImageBrand();
     });
   }
