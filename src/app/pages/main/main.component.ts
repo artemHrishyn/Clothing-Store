@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Subscription, forkJoin } from 'rxjs';
 import { GetReviewsService } from '../../services/get-reviews.service';
 import { BrandImageService } from '../../services/brand-image.service';
@@ -13,8 +13,6 @@ import { TopProductService } from '../../services/product/top-product.service';
   templateUrl: './main.component.html',
   styleUrls: [
     './main.component.scss',
-    './media.scss',
-    './service.scss',
     './reviews.scss'
   ],
   providers:[
@@ -34,28 +32,24 @@ export class MainComponent  implements OnInit, OnDestroy {
 
   public totalBrands: number = 0;
   public totalProduct: number = 0;
-
-  public imgBrands: string[] = [];
+  
   public reviews: IReviews[] = [];
-
-  public image:string = '';
 
   constructor(
     private allProduct: AllProductService,
     private topProduct: TopProductService,
     private getReviews: GetReviewsService,
-    private brandImage: BrandImageService,
     private goToUrlService : GoToUrlService
     ){}
 
   ngOnInit(): void {
-    this.subscribe = this.getData().subscribe(([allProductData, topProductData, brandImage, reviews]) => {
+    this.subscribe = this.getData().subscribe(([allProductData, topProductData, reviews]) => {
       
-      this.imgBrands = brandImage;
       this.totalBrands = allProductData.length;
       this.totalProduct = allProductData.length;
       this.productAll = allProductData;
       this.productTop = topProductData;
+      
       this.reviews = reviews;
     });
   }
@@ -63,17 +57,16 @@ export class MainComponent  implements OnInit, OnDestroy {
   private getData() {
     const allProduct$ = this.allProduct.getAllProduct();
     const topProduct$ = this.topProduct.getTopProduct();
-    const brandImage$ = this.brandImage.returnBrandsArray();
     const reviews$ = this.getReviews.getReviews();
   
-    return forkJoin([allProduct$, topProduct$, brandImage$, reviews$]);
+    return forkJoin([allProduct$, topProduct$, reviews$]);
   }
 
     
   public goToUrl(value: string) {
     this.goToUrlService.goToUrl(value);
   }
-
+  
   ngOnDestroy(): void {
     this.subscribe?.unsubscribe();
   }

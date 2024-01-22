@@ -1,12 +1,15 @@
 <section class="global-info">
     <div>
       <h1>знайти одяг, який відповідає вашому стилю</h1>
-      <p>
+      <p class="global-info__text">
         Перегляньте наш різноманітний асортимент ретельно створеного одягу,
         розробленого, щоб підкреслити вашу індивідуальність і задовольнити ваше
         почуття стилю.
       </p>
+      
+    <button>
       <a (click)="goToUrl('catalog')">Здійснити покупку</a>
+    </button>
       <ul>
         <li>
           <h3>{{ totalBrands }} +</h3>
@@ -26,24 +29,18 @@
   </section>
   <!-- main info -->
   
-  <!-- brand -->
-  <ul class="brand">
-    <li *ngFor="let imageUrl of imgBrands">
-      <img [src]="imageUrl" alt="Image" />
-    </li>
-  </ul>
-  <!-- brand end -->
-  
+  <csa-brand-image></csa-brand-image>
+
   <!-- arrivals -->
   <section class="selling">
     <h1>нові надходження</h1>
-    <ul class="info__list">
+    <ul>
       <li *ngFor="let item of productAll.slice(0, 5)">
         <csa-product-cart [itemProduct]="item"></csa-product-cart>
       </li>
     </ul>
     <button>
-      <span class="buy" (click)="goToUrl('catalog')">Подивитись все</span>
+      <span (click)="goToUrl('catalog')">Подивитись все</span>
     </button>
   </section>
   <!-- arrivals end -->
@@ -51,13 +48,13 @@
   <!-- selling -->
   <section class="selling">
     <h1>топ продажів</h1>
-    <ul class="info__list">
+    <ul>
       <li *ngFor="let item of productTop.slice(0, 5)">
         <csa-product-cart [itemProduct]="item"></csa-product-cart>
       </li>
     </ul>
     <button>
-      <span class="buy" (click)="goToUrl('catalog')">Подивитись все</span>
+      <span (click)="goToUrl('catalog')">Подивитись все</span>
     </button>
   </section>
   <!-- selling end -->
