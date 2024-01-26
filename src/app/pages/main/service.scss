@@ -1,0 +1,37 @@
+@import '_mixin.scss';
+
+$colorBlack: #000;
+
+.service {
+    display: flex;
+    
+    ul {
+      margin: 56px auto;
+      display: grid;
+      @include gridTemplateService();
+      list-style: none;
+  
+      li {
+        display: flex;
+        justify-content: space-between;
+        max-width: 480px;
+        width: 100%;
+        align-items: center;
+      }
+    }
+    
+    &__img {
+      padding: 10px;
+      max-width: 100px;
+      width: 100%;
+      background-color: $colorBlack;
+    }
+  
+    &__text {
+      color: $colorBlack;
+      font-family: "Integral CF sans-serif";
+      font-size: clamp(13px, 3vw ,24px);
+      font-weight: 400;
+      margin: 0 12px;
+    }
+  }

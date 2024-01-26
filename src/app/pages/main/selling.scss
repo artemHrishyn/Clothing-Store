@@ -4,29 +4,31 @@
 $colorBlack: #000;
 $colorWhite: #fff;
 
-// Font Family
-$fontFamilyIntegral: "Integral CF sans-serif";
-$fontFamilySatoshi: "Satoshi CF sans-serif";
-
-.global-info{
-  display: grid;
-  @include gridTemplateGlobalInfo();
-
-  div{
+.selling{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-
+    align-items: center;
+  
     h1{
-      margin-bottom: 20px;
-      color: $colorBlack;
-      font-family: $fontFamilyIntegral;
-      font-size: clamp(20px, 4vw, 64px);
-      font-weight: 700;
-      line-height: clamp(20px, 4vw, 64px);
-      text-transform: uppercase;
+      margin-bottom: 50px;
+      color: rgba(0, 0, 0, 0.60);
+      font-family: "Satoshi CF sans-serif";
+      font-size: clamp(30px, 4vw, 90px);
+      font-weight: 400;
     }
-    
+  
+    ul{
+      display: grid;
+      @include gridTemplateSelling();
+      margin-bottom: 50px;
+      list-style: none;
+  
+      li{
+        margin-right: 20px;
+        max-width: 235px;
+        width: 100%;
+      }
+    }
     
     button {
       border: none;
@@ -34,11 +36,9 @@ $fontFamilySatoshi: "Satoshi CF sans-serif";
       line-height: 1;
       color: currentColor;
       position: relative;
-
       
-      a {
+      span {
         padding: 10px 20px;
-        text-transform: uppercase;
         background-color: $colorWhite;
         display: inherit;
         border: 2px solid currentColor;
@@ -48,7 +48,7 @@ $fontFamilySatoshi: "Satoshi CF sans-serif";
         transform: translate(-6px, -6px);
         transition: .2s ease-in-out;
       }
-
+  
       &::after {
         content: "";
         display: block;
@@ -68,9 +68,9 @@ $fontFamilySatoshi: "Satoshi CF sans-serif";
           linear-gradient(182deg, currentColor, currentColor 25%, $colorBlack),
           url("data:image/svg+xml,%3Csvg viewBox='0 0 400 75' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
       }
-
+  
       &:hover {
-        a {
+        span {
           transform: translate(0px, 0px);
           transition: .2s ease-in-out;
           color: $colorWhite;
@@ -78,43 +78,4 @@ $fontFamilySatoshi: "Satoshi CF sans-serif";
         }
       }
     }
-
-    ul{
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-
-      li{
-        margin-right: 15px;
-        
-        h3{
-          color: $colorBlack;
-          font-family: $fontFamilySatoshi;
-          font-size: clamp(20px, 4vw, 55px);
-          font-weight: 700;
-        }
-
-        p{
-          color: rgba(0, 0, 0, 0.60);
-          font-family: $fontFamilySatoshi;
-          font-size: clamp(20px, 2vw, 30px);
-          font-weight: 400;
-          line-height: clamp(20px, 2vw, 30px);
-        }
-      }
-    }
-
   }
-
-  &__text{
-    margin-bottom: 20px;
-    color: rgba(0, 0, 0, 0.60);
-    font-family: $fontFamilySatoshi;
-    font-size: clamp(15px, 2vw, 25px);
-    font-weight: 400;
-  }
-
-  img{
-    max-width: 600px;
-  }
-}
